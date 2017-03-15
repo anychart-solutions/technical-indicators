@@ -246,6 +246,8 @@
     };
 
     anychart.onDocumentReady(function () {
+        initHeightChart();
+
         // init, create chart
         app.createChart(container, firstInitData);
 
@@ -395,6 +397,13 @@
             $indicatorSettingsModal.modal('hide');
         });
     });
+
+    $(window).on('resize', initHeightChart);
+
+    function initHeightChart() {
+        var creditsHeight = 10;
+        $('#chart-container').height($(window).height() - $indicatorNavPanel.outerHeight() - creditsHeight);
+    }
 
     function createChart(container, settings, updateChart) {
         // The data used in this sample can be obtained from the CDN

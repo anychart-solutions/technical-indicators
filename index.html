@@ -66,71 +66,70 @@
 </div>
 
 <div class="wrapper">
-    <div class="container">
-        <ul class="list list-unstyled list-nav" id="indicatorNavPanel">
-            <li>
-                <select name="" id="chartDataSelect" class="select selectpicker show-tick" title="Select Data Chart">
-                    <option value="msft" selected>MSFT</option>
-                    <option value="orcl">ORCL</option>
-                    <option value="csco">CSCO</option>
-                    <option value="ibm">IBM</option>
-                </select>
-            </li>
+    <ul class="list list-unstyled list-nav" id="indicatorNavPanel">
+        <li>
+            <select name="" id="chartDataSelect" class="select selectpicker show-tick" title="Select Data Chart">
+                <option value="msft" selected>MSFT</option>
+                <option value="orcl">ORCL</option>
+                <option value="csco">CSCO</option>
+                <option value="ibm">IBM</option>
+            </select>
+        </li>
 
-            <li>
-                <select name="" id="seriesTypeSelect" class="select selectpicker show-tick">
-                    <option value="area">Area Chart</option>
-                    <option value="candlestick">Candlestick Chart</option>
-                    <option value="column">Column Chart</option>
-                    <option value="jumpLine">Jump Line Chart</option>
-                    <option value="line" selected>Line Chart</option>
-                    <option value="marker">Marker Chart</option>
-                    <option value="ohlc">OHLC Chart</option>
-                    <option value="rangeArea">Range Area Chart</option>
-                    <option value="rangeColumn">Range Column Chart</option>
-                    <option value="rangeSplineArea">Range Spline Area Chart</option>
-                    <option value="rangeStepArea">Range Step Area Chart</option>
-                    <option value="spline">Spline Chart</option>
-                    <option value="splineArea">Spline Area Chart</option>
-                    <option value="stepArea">Step Area Chart</option>
-                    <option value="stepLine">Step Line Chart</option>
-                    <option value="stick">Stick Chart</option>
-                </select>
-            </li>
+        <li>
+            <select name="" id="seriesTypeSelect" class="select selectpicker show-tick">
+                <option value="area">Area Chart</option>
+                <option value="candlestick">Candlestick Chart</option>
+                <option value="column">Column Chart</option>
+                <option value="jumpLine">Jump Line Chart</option>
+                <option value="line" selected>Line Chart</option>
+                <option value="marker">Marker Chart</option>
+                <option value="ohlc">OHLC Chart</option>
+                <option value="rangeArea">Range Area Chart</option>
+                <option value="rangeColumn">Range Column Chart</option>
+                <option value="rangeSplineArea">Range Spline Area Chart</option>
+                <option value="rangeStepArea">Range Step Area Chart</option>
+                <option value="spline">Spline Chart</option>
+                <option value="splineArea">Spline Area Chart</option>
+                <option value="stepArea">Step Area Chart</option>
+                <option value="stepLine">Step Line Chart</option>
+                <option value="stick">Stick Chart</option>
+            </select>
+        </li>
 
-            <li>
-                <select name="" class="select selectpicker show-tick" id="scaleTypeSelect" title="Scale">
-                    <option value="linear" selected>Linear</option>
-                    <option value="log">Logarithmic</option>
-                </select>
-            </li>
+        <li>
+            <select name="" class="select selectpicker show-tick" id="scaleTypeSelect" title="Scale">
+                <option value="linear" selected>Linear</option>
+                <option value="log">Logarithmic</option>
+            </select>
+        </li>
 
-            <li>
-                <select class="select selectpicker show-tick" multiple name="" data-width="350" id="indicatorTypeSelect" title="Add Indicator">
-                    <option value="ama" data-plot-index="0">Adaptive Moving Average(AMA)</option>
-                    <option value="aroon" data-plot-index="1">Aroon Indicator</option>
-                    <option value="atr" data-plot-index="2">Average True Range(ATR)</option>
-                    <option value="bbands" data-plot-index="0">Bollinger Bands(BBands)</option>
-                    <option value="bbandsB" data-plot-index="3">Bollinger Bands B(BBands B)</option>
-                    <option value="bbandsWidth" data-plot-index="4">Bollinger Bands Width(BBands Width)</option>
-                    <option value="ema" data-plot-index="0">Exponential Moving Average(EMA)</option>
-                    <option value="fastStochastic" data-plot-index="5">Fast Stochastic Oscillator</option>
-                    <option value="stochastic" data-plot-index="6">Full Stochastic Oscillator</option>
-                    <option value="kdj" data-plot-index="7">KDJ Indicator</option>
-                    <option value="mma" data-plot-index="0">Modified Moving Average(MMA)</option>
-                    <option value="macd" data-plot-index="8">Moving Average Convergence Divergence(MACD)</option>
-                    <option value="roc" data-plot-index="9">Rate of Change(ROC)</option>
-                    <option value="rsi" data-plot-index="10">Relative Strength Index(RSI)</option>
-                    <option value="sma" data-plot-index="0">Simple Moving Average(SMA)</option>
-                    <option value="slowStochastic" data-plot-index="11">Slow Stochastic Oscillator</option>
-                </select>
-            </li>
+        <li>
+            <select class="select selectpicker show-tick" multiple name="" data-width="350" id="indicatorTypeSelect"
+                    title="Add Indicator">
+                <option value="ama" data-plot-index="0">Adaptive Moving Average(AMA)</option>
+                <option value="aroon" data-plot-index="1">Aroon Indicator</option>
+                <option value="atr" data-plot-index="2">Average True Range(ATR)</option>
+                <option value="bbands" data-plot-index="0">Bollinger Bands(BBands)</option>
+                <option value="bbandsB" data-plot-index="3">Bollinger Bands B(BBands B)</option>
+                <option value="bbandsWidth" data-plot-index="4">Bollinger Bands Width(BBands Width)</option>
+                <option value="ema" data-plot-index="0">Exponential Moving Average(EMA)</option>
+                <option value="fastStochastic" data-plot-index="5">Fast Stochastic Oscillator</option>
+                <option value="stochastic" data-plot-index="6">Full Stochastic Oscillator</option>
+                <option value="kdj" data-plot-index="7">KDJ Indicator</option>
+                <option value="mma" data-plot-index="0">Modified Moving Average(MMA)</option>
+                <option value="macd" data-plot-index="8">Moving Average Convergence Divergence(MACD)</option>
+                <option value="roc" data-plot-index="9">Rate of Change(ROC)</option>
+                <option value="rsi" data-plot-index="10">Relative Strength Index(RSI)</option>
+                <option value="sma" data-plot-index="0">Simple Moving Average(SMA)</option>
+                <option value="slowStochastic" data-plot-index="11">Slow Stochastic Oscillator</option>
+            </select>
+        </li>
 
-            <li><a class="btn btn-default" href="" id="resetButton">Reset</a></li>
-        </ul>
+        <li><a class="btn btn-default" href="" id="resetButton">Reset</a></li>
+    </ul>
 
-        <div id="chart-container"></div>
-    </div>
+    <div id="chart-container"></div>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
