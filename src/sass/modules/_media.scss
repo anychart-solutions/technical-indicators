@@ -1,0 +1,27 @@
+@media screen and (max-width: 1200px) {
+  #indicatorNavPanel {
+    li {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  #indicatorNavPanel {
+    &.list-nav {
+      & > li {
+        display: block;
+      }
+      & div.select.bootstrap-select {
+        width: 100% !important;
+      }
+    }
+
+    #resetButton {
+      display: block;
+      width: 100%;
+      max-width: 150px;
+      margin: 0 auto;
+    }
+  }
+}

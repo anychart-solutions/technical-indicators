@@ -1,0 +1,52 @@
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: #fff;
+}
+
+body, html {
+  height: 100%;
+}
+
+.wrapper {
+  padding-top: 20px;
+}
+
+#chart-container {
+  height: 600px;
+}
+
+#indicatorForm {
+  h5 {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  p {
+    margin-bottom: 15px;
+  }
+
+  label {
+    font-weight: 400;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+}
+
+#indicatorNavPanel {
+  &.list-nav {
+    padding-left: 25px;
+    padding-right: 25px;
+
+    & > li {
+      display: inline-block;
+    }
+  }
+}
+
+
+
