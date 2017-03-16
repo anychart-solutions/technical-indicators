@@ -409,6 +409,11 @@
             $indicatorTypeSelect.prev('.dropdown-menu').find('li[data-original-index="' + indexOption + '"]').removeClass('selected');
         });
 
+        // init selectpicker to all select in indicator settings modal
+        $indicatorSettingsModal.on('show.bs.modal', function () {
+            $indicatorForm.find('.select').selectpicker();
+        });
+
         // reset all settings
         $resetBtn.on('click', function (e) {
             e.preventDefault();
@@ -629,8 +634,6 @@
         setColClass();
         // indicator overview text
         overviewText();
-        // init selectpicker to all select in form
-        $indicatorForm.find('.select').selectpicker();
     }
 
     function overviewText() {
