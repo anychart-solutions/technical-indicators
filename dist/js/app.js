@@ -10,17 +10,12 @@
     var $indicatorForm = $('#indicatorForm');
 
     var savedSettings = {};
-    savedSettings['data'] = $chartDataSelect.val();
+    savedSettings['data'] = {};
     savedSettings['chartType'] = $seriesTypeSelect.val();
     savedSettings['scale'] = $scaleTypeSelect.val();
     savedSettings['indicators'] = {};
 
-    var dataPattern = 'get_xxx_daily_short_data';
     var container = 'chart-container';
-    var firstInitData = {
-        data: get_msft_daily_short_data(),
-        name: 'MSFT'
-    };
 
     var indicator = {
         name: '',
@@ -132,7 +127,7 @@
         },
         overviewIndicator: {
             ama: {
-                title: 'Adaptive Moving Average',
+                title: 'Adaptive Moving Average (AMA)',
                 description: '<p>An Adaptive Moving Average (AMA) is another indicator like SMA, MMA and EMA, but has more parameters. It changes its sensitivity due to the price fluctuations. The Adaptive Moving Average becomes more sensitive during periods when price is moving in a certain direction and becomes less sensitive to price movements when it become unstable.</p> <p>AnyChart Stock allows you to add AMA with desired period to any of your charts. </p> <p>Find the mathematical description of the indicator on the <a href="https://docs.anychart.com/latest/Stock_Charts/Technical_Indicators/Mathematical_Description#adaptive_moving_average" target="_blank">Adaptive moving average (AMA) Mathematical Description</a> page.</p>',
                 parameters: 'AMA indicator needs five parameters: mapping with value field in it (required), three periods: period, fast period and slow period; and a type of series. It is possible to change the series type any time using the <a target="_blank" href="https://api.anychart.com/latest/anychart.core.stock.series.Base#seriesType">seriesType()</a> method.'
             },
@@ -142,17 +137,17 @@
                 parameters: 'Aroon indicator has only one type specific parameter - period: mapping with value field in it, period and types of Up and Down series.'
             },
             atr: {
-                title: 'Average True Range',
+                title: 'Average True Range (ATR)',
                 description: '<p>Developed by J. Welles Wilder, the Average True Range (ATR) is an indicator that measures volatility. As with most of his indicators, Wilder designed ATR with commodities and daily prices in mind. Commodities are frequently more volatile than stocks. They were are often subject to gaps and limit moves, which occur when a commodity opens up or down its maximum allowed move for the session. A volatility formula based only on the high-low range would fail to capture volatility from gap or limit moves. Wilder created Average True Range to capture this "missing" volatility. It is important to remember that ATR does not provide an indication of price direction, just volatility.</p><p>Mathematical description: <a href="https://docs.anychart.com/7.13.0/Stock_Charts/Technical_Indicators/Mathematical_Description#average_true_range" target="_blank">Average True Range (ATR) Mathematical Description</a>.</p>',
                 parameters: 'Average True Range indicator has three parameters: mapping, period, which has to be an integer value more than 1, and series type.'
             },
             bbands: {
-                title: 'Bollinger Bands',
+                title: 'Bollinger Bands (BBands)',
                 description: '<p>Bollinger Bands are a technical analysis tool invented by John Bollinger in the 1980s. Having evolved from the concept of trading bands, Bollinger Bands can be used to measure the "highness" or "lowness" of the price relative to previous trades.</p><p>AnyChart Stock allows you to add Bollinger Bands with desired period to any of your charts.</p><p>Mathematical description of the indicator: <a href="https://docs.anychart.com/7.13.0/Stock_Charts/Technical_Indicators/Mathematical_Description#bollinger_bands" target="_blank">Bollinger Bands</a>.</p>',
                 parameters: 'Bollinger Bands indicator only required parameter is the "mapping". Optional parameters are: "period", "deviation", "middle", "upper" and "lower" series types.'
             },
             bbandsB: {
-                title: 'Bollinger Bands %B',
+                title: 'Bollinger Bands %B (BBands B)',
                 description: '<p>Bollinger Bands %B is an indicator derived from <a href="https://docs.anychart.com/7.13.0/Stock_Charts/Technical_Indicators/Bollinger_Bands" target="_blank">Bollinger Bands</a>.</p>%B quantifies a security\'s price relative to the upper and lower Bollinger Band. There are six basic relationship levels: ' +
                 '<ul>' +
                 '<li>%B equals 1 when price is at the upper band</li>' +
@@ -166,12 +161,12 @@
                 parameters: 'Bollinger Bands %B indicator requires only the "mapping" parameter. Optional parameters are "period", "deviation" and "series type".'
             },
             bbandsWidth: {
-                title: 'Bollinger Bands Width',
+                title: 'Bollinger Bands Width (BBands Width)',
                 description: '<p>Bollinger Bands Width is an indicator derived from <a href="https://docs.anychart.com/7.13.0/Stock_Charts/Technical_Indicators/Bollinger_Bands" target="_blank">Bollinger Bands</a>.</p><p>Non-normalized Bollinger Bands Width measures the distance, or difference, between the upper band and the lower band. Bollinger Bands Width decreases as Bollinger Bands narrow and increases as Bollinger Bands widen because Bollinger Bands are based on the standard deviation.</p><p>Mathematical description of the indicator: <a href="https://docs.anychart.com/7.13.0/Stock_Charts/Technical_Indicators/Mathematical_Description#bollinger_bands_width" target="_blank">Mathematical Description of Bollinger Bands Width</a>.</p>',
                 parameters: 'Bollinger Bands Width indicator requires only the "mapping" parameter. Optional parameters are "period", "deviation" and "series type".'
             },
             ema: {
-                title: 'Exponential moving average',
+                title: 'Exponential moving average (EMA)',
                 description: '<p>An exponential moving average (EMA), sometimes also called an exponentially weighted moving average (EWMA), applies weighting factors which decrease exponentially. The weighting for each older data point decreases exponentially, giving much more importance to recent observations while still not discarding older observations entirely.</p><p>AnyChart Stock allows you to add EMA with desired period to any of your charts.</p><p>Mathematical description of the indicator: <a href="https://docs.anychart.com/7.13.0/Stock_Charts/Technical_Indicators/Mathematical_Description#exponential_moving_average" target="_blank">Exponential Moving Average (EMA) Mathematical Description</a>.</p>',
                 parameters: 'EMA indicator need three parameters: mapping with value field in it, period and a type of series.'
             },
@@ -243,12 +238,12 @@
                 'It is possible to change the series type any time using the <a target="_blank" href="https://api.anychart.com/7.13.0/anychart.core.stock.series.Base#seriesType">seriesType()</a> method.'
             },
             mma: {
-                title: 'Modified Moving Average',
+                title: 'Modified Moving Average (MMA)',
                 description: '<p>A Modified Moving Average (MMA) (also known as Running Moving Average (RMA), or SMoothed Moving Average (SMMA)) is an indicator that shows the average value of a security\'s price over a period of time. It works very similar to the Exponential Moving Average, they are equivalent but for different periods (e.g. the MMA value for a 14-day period will be the same as EMA-value for a 27-days period).</p><p>MMA is partly calculated like SMA: the first point of the MMA is calculated the same way it is done for SMA. However, other points are calculated differently:the new price is added first and then the last average is subtracted from the resulting sum.</p><p>AnyChart Stock allows you to add MMA with desired period to any of your charts.</p><p>Find the mathematical description of the indicator on the <a href="https://docs.anychart.com/7.13.0/Stock_Charts/Technical_Indicators/Mathematical_Description#modified_moving_average" target="_blank">Modified moving average (MMA) Mathematical Description</a> page.</p>',
                 parameters: 'MMA indicator needs three parameters, as SMA and EMA: mapping with value field in it, period and a type of series. It is possible to change the series type at any time using the <a target="_blank" href="https://api.anychart.com/7.13.0/anychart.core.stock.series.Base#seriesType">seriesType()</a> method.'
             },
             macd: {
-                title: 'Moving Average Convergence/Divergence',
+                title: 'Moving Average Convergence/Divergence (MACD)',
                 description: '<p>MACD, which stands for Moving Average Convergence / Divergence, is a technical analysis indicator created by Gerald Appel in the 1960s. It shows the difference between a fast and slow exponential moving average (EMA) of closing prices.</p><p>AnyChart Stock allows you to add MACD with desired fast, slow and signal periods settings to any of your charts.</p><p>Mathematical description of the indicator: <a href="Mathematical description of the indicator: Moving Average Convergence/Divergence (MACD) Mathematical Description." target="_blank">Moving Average Convergence/Divergence (MACD) Mathematical Description</a>.</p>',
                 parameters: 'MACD indicator needs three parameters: mapping with value field in it, fast period 12, slow period 26 and signal period 9, and a types of series.'
             },
@@ -263,7 +258,7 @@
                 parameters: 'RSI indicator needs three parameters: mapping with value field in it, period and a type of series.'
             },
             sma: {
-                title: 'Simple Moving Average',
+                title: 'Simple Moving Average (SMA)',
                 description: '<p>A Simple Moving Average (SMA) is the unweighted mean of the previous n data points. In technical analysis there are various popular values for n, like 10 days, 40 days, or 200 days. The period selected depends on the kind of movement one is concentrating on, such as short, intermediate, or long term. In any case moving average levels are interpreted as support in a rising market, or resistance in a falling market.</p><p>AnyChart Stock allows you to add SMA with desired period to any of your charts.</p><p>Mathematical description of the indicator: <a href="https://docs.anychart.com/7.13.0/Stock_Charts/Technical_Indicators/Mathematical_Description#simple_moving_average" target="_blank">Simple moving average (SMA) Mathematical Description</a>.</p>',
                 parameters: 'SMA indicator needs three parameters: mapping with value field in it, period and a type of series.'
             }
@@ -309,19 +304,32 @@
     anychart.onDocumentReady(function () {
         initHeightChart();
 
-        // init, create chart
-        app.createChart(container, firstInitData);
+        // To work with the data adapter you need to reference the data adapter script file from AnyChart CDN
+        // (http://cdn.anychart.com/js/latest/data-adapter.min.js)
+        // Load JSON data and create a chart by JSON data.
+        anychart.data.loadJsonFile($chartDataSelect.val(), function (data) {
+            savedSettings['data']['msft'] = data;
+            // init, create chart
+            app.createChart(container);
+        });
 
         // event to set data to chart
         $chartDataSelect.on('change', function () {
-            var name = $(this).val();
-            var data = dataPattern.replace('xxx', name) + '()';
+            var name = $(this).find('option:selected').text().toLowerCase();
 
-            dataTable.addData(eval(data));
-            chart.plot().getSeries(0).name(name);
-
-            // save chart data
-            savedSettings['data'] = $(this).val();
+            if (!~Object.keys(savedSettings['data']).indexOf(name)) {
+                // To work with the data adapter you need to reference the data adapter script file from AnyChart CDN
+                // (http://cdn.anychart.com/js/latest/data-adapter.min.js)
+                // Load JSON data and create a chart by JSON data.
+                anychart.data.loadJsonFile($(this).val(), function (data) {
+                    savedSettings['data'][name] = data;
+                    dataTable.addData(data);
+                    chart.plot().getSeries(0).name(name.toUpperCase());
+                });
+            } else {
+                dataTable.addData(savedSettings['data'][name]);
+                chart.plot().getSeries(0).name(name.toUpperCase());
+            }
         });
 
         // event to set chart type
@@ -336,6 +344,13 @@
 
         // event to show modal indicator settings
         $indicatorTypeSelect.on('change', function () {
+
+            if ($(this).val()) {
+                if ($(this).val().length === 1) {
+                    updateTextForIndicatorTypeSelect();
+                }
+            }
+
             if ($(this).val() === null || $(this).val().length < Object.keys(savedSettings.indicators).length) {
 
                 app.removeChart();
@@ -350,7 +365,7 @@
                     savedSettings.indicators = {};
                 }
 
-                app.createChart(container, null, true);
+                app.createChart(container, true);
 
                 return
             }
@@ -382,7 +397,7 @@
             app.removeChart();
             // save scale type
             savedSettings['scale'] = $(this).val();
-            app.createChart(container, null, true);
+            app.createChart(container, true);
         });
 
         // remove selected class, if indicator not selected
@@ -398,6 +413,8 @@
             }
 
             if (!lastAddedIndicator) {
+                // update select text/title
+                updateTextForIndicatorTypeSelect();
                 return false
             }
 
@@ -407,6 +424,8 @@
             $indicatorTypeSelect.find('[value="' + lastAddedIndicator + '"]').removeAttr('selected');
             // remove selected class
             $indicatorTypeSelect.prev('.dropdown-menu').find('li[data-original-index="' + indexOption + '"]').removeClass('selected');
+            // update select text/title
+            updateTextForIndicatorTypeSelect();
         });
 
         // init selectpicker to all select in indicator settings modal
@@ -421,17 +440,16 @@
             app.removeChart();
             // reset saved settings
             savedSettings['indicators'] = {};
-            savedSettings['scale'] = {};
-            savedSettings['data'] = {};
-            savedSettings['chartType'] = {};
+            savedSettings['scale'] = 'linear';
+            savedSettings['chartType'] = 'line';
 
-            $chartDataSelect.val('msft').selectpicker('refresh');
+            $chartDataSelect.val('data/msft.json').selectpicker('refresh');
             $seriesTypeSelect.val('line').selectpicker('refresh');
             $indicatorTypeSelect.val('').selectpicker('refresh');
             $scaleTypeSelect.val('linear').selectpicker('refresh');
 
             // init, create chart
-            app.createChart(container, firstInitData);
+            app.createChart(container);
         });
 
         // event to add indicator
@@ -471,13 +489,8 @@
         $('#chart-container').height($(window).height() - $indicatorNavPanel.outerHeight() - creditsHeight);
     }
 
-    function createChart(container, settings, updateChart) {
-        // The data used in this sample can be obtained from the CDN
-        // http://cdn.anychart.com/csv-data/msft-daily-short.js
-        // http://cdn.anychart.com/csv-data/orcl-daily-short.js
-        // http://cdn.anychart.com/csv-data/csco-daily-short.js
-        // http://cdn.anychart.com/csv-data/ibm-daily-short.js
-
+    function createChart(container, updateChart) {
+        var dataName = $chartDataSelect.find('option:selected').text();
         // create data table on loaded data
         dataTable = anychart.data.table();
 
@@ -492,20 +505,26 @@
         // create plot on the chart
         var plot = chart.plot(0);
 
-        if (updateChart) {
-            var name = savedSettings['data'];
-            var data = dataPattern.replace('xxx', name) + '()';
+        dataTable.addData(savedSettings['data'][dataName.toLowerCase()]);
 
-            dataTable.addData(eval(data));
+        if (updateChart) {
+            var indicatorName;
+            var indicatorPlot;
+            var indicatorSettings = [];
+
             // create line series
             lineSeries = plot[savedSettings['chartType']](mapping);
-            lineSeries.name(name);
-            var indicatorName;
+            lineSeries.name(dataName.toUpperCase());
 
             plot.yScale(savedSettings['scale']);
 
             for (keyIndicator in savedSettings['indicators']) {
                 indicatorName = keyIndicator;
+
+                if (savedSettings['indicators'].hasOwnProperty(keyIndicator)) {
+                    indicatorSettings = savedSettings['indicators'][keyIndicator]['settings'];
+                    indicatorSettings[0] = mapping;
+                }
 
                 // for slow/fast stochastic
                 if (~indicatorName.toLowerCase().indexOf('stochastic')) {
@@ -513,17 +532,16 @@
                 }
 
                 if (savedSettings['indicators'].hasOwnProperty(keyIndicator)) {
-                    var indicatorPlot = chart.plot(savedSettings['indicators'][keyIndicator]['plotIndex']);
-                    indicatorPlot[indicatorName].apply(indicatorPlot, savedSettings['indicators'][keyIndicator]['settings']);
+                    indicatorPlot = chart.plot(savedSettings['indicators'][keyIndicator]['plotIndex']);
+                    indicatorPlot[indicatorName].apply(indicatorPlot, indicatorSettings);
                     indicatorPlot.yScale(savedSettings['scale']);
                 }
             }
 
         } else {
-            dataTable.addData(settings.data);
             // create line series
             lineSeries = plot.line(mapping);
-            lineSeries.name(settings.name);
+            lineSeries.name(dataName.toUpperCase());
         }
 
         lineSeries.stroke('2px #64b5f6');
@@ -559,12 +577,31 @@
         chart.listen('chartDraw', function () {
             $('#loader').hide();
         });
+
     }
 
     function removeChart() {
         if (chart) {
             chart.dispose();
             chart = null;
+        }
+    }
+
+    function updateTextForIndicatorTypeSelect() {
+        if ($indicatorTypeSelect.val()) {
+            if ($indicatorTypeSelect.val().length > 1) {
+                $indicatorTypeSelect.find('option:selected').each(function () {
+                    $(this).text($(this).attr('data-abbr'))
+                });
+            } else {
+                $indicatorTypeSelect.find('option:selected').each(function () {
+                    $(this).text($(this).attr('data-full-text'))
+                });
+            }
+
+            $indicatorTypeSelect.selectpicker('refresh').closest('.bootstrap-select').find('.dropdown-menu.inner').find('span.text').each(function (index) {
+                $(this).text($indicatorTypeSelect.find('option').eq(index).attr('data-full-text'));
+            });
         }
     }
 
