@@ -117,12 +117,6 @@
                     <listItem>%B is below .50 when price is below the middle band (SMA)</listItem>
                 </list>
             </text>
-
-            <caption>Parameters</caption>
-            <text>Bollinger Bands %B indicator requires only the "mapping" parameter. Optional parameters
-                are
-                "period", "deviation" and "series type".
-            </text>
         </description>
     </bbandsB>
     <bbandsWidth>
@@ -320,19 +314,6 @@
                     <listItem>series types of the %K, %D and %J values.</listItem>
                 </list>
             </text>
-            <text>
-                The following code shows how to create a KDJ indicator with %K value with period of 10 and EMA smoothing
-                and
-                %D value with period of 20 and SMA smoothing.There are three series that form the KDJ indicator, so
-                there is
-                a methods for each of them:
-                <list>
-                    <listItem>kSeries() for the %K series</listItem>
-                    <listItem>dSeries() for the %D series</listItem>
-                    <listItem>jSeries() for the %J series</listItem>
-                </list>
-            </text>
-            <text>It is possible to change the series type any time using the seriesType() method.</text>
         </description>
     </kdj>
     <mma>
