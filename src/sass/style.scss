@@ -46,5 +46,16 @@ body, html {
   }
 }
 
+.img-ok {
+  display: none;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  margin-left: -150px;
+  top: 10%;
+}
+
 
 

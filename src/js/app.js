@@ -8,6 +8,7 @@
     var $addIndicatorBtn = $('#addIndicatorButton');
     var $indicatorNavPanel = $('#indicatorNavPanel');
     var $indicatorForm = $('#indicatorForm');
+    var $loader = $('#loader');
 
     var savedSettings = {};
     savedSettings['data'] = {};
@@ -20,111 +21,7 @@
     var indicator = {
         name: '',
         plotIndex: 0,
-        defaultSettings: {
-            ama: {
-                period: 20,
-                fastPeriod: 2,
-                slowPeriod: 30,
-                seriesType: 'line'
-            },
-            aroon: {
-                period: 20,
-                upSeriesType: 'line',
-                downSeriesType: 'line'
-            },
-            atr: {
-                period: 14,
-                seriesType: 'line'
-            },
-            bbands: {
-                period: 20,
-                deviation: 2,
-                upperSeriesType: 'line',
-                lowerSeriesType: 'line',
-                middleSeriesType: 'line'
-            },
-            bbandsB: {
-                period: 20,
-                deviation: 2,
-                seriesType: 'line'
-            },
-            bbandsWidth: {
-                period: 20,
-                deviation: 2,
-                seriesType: 'line'
-            },
-            ema: {
-                period: 20,
-                seriesType: 'line'
-            },
-            stochastic: {
-                kPeriod: 14,
-                kMAPeriod: 1,
-                dPeriod: 3,
-                smoothingType: ['sma', 'ema'],
-                kMAType: 'sma',
-                dMAType: 'sma',
-                kSeriesType: 'line',
-                dSeriesType: 'line'
-            },
-            fastStochastic: {
-                kPeriod: 20,
-                kMAPeriod: 10,
-                dPeriod: 3,
-                smoothingType: ['sma', 'ema'],
-                kMAType: 'sma',
-                dMAType: 'sma',
-                kSeriesType: 'line',
-                dSeriesType: 'line'
-            },
-            slowStochastic: {
-                kPeriod: 14,
-                kMAPeriod: 3,
-                dPeriod: 3,
-                smoothingType: ['sma', 'ema'],
-                kMAType: 'sma',
-                dMAType: 'sma',
-                kSeriesType: 'line',
-                dSeriesType: 'line'
-            },
-            kdj: {
-                kPeriod: 14,
-                kMAPeriod: 5,
-                dPeriod: 5,
-                smoothingType: ['sma', 'ema'],
-                kMAType: 'ema',
-                dMAType: 'ema',
-                kMultiplier: -2,
-                dMultiplier: 3,
-                kSeriesType: 'line',
-                dSeriesType: 'line',
-                jSeriesType: 'line'
-            },
-            mma: {
-                period: 20,
-                seriesType: 'line'
-            },
-            macd: {
-                fastPeriod: 12,
-                slowPeriod: 26,
-                signalPeriod: 9,
-                macdSeriesType: 'line',
-                signalSeriesType: 'line',
-                histogramSeriesType: 'column'
-            },
-            roc: {
-                period: 20,
-                seriesType: 'line'
-            },
-            rsi: {
-                period: 14,
-                seriesType: 'line'
-            },
-            sma: {
-                period: 20,
-                seriesType: 'line'
-            }
-        },
+        defaultSettings: {},
         seriesType: [
             'area',
             'column',
@@ -163,11 +60,56 @@
         removeChart: removeChart
     };
 
+    var location = window.location;
+
+    // cross origin requests are only supported for protocol schemes
+    if (location.protocol === 'file:') {
+        $loader.hide();
+        $('.wrapper').hide();
+        $('#warning').modal('show').on('hidden.bs.modal', function () {
+            $('.img-ok').fadeIn();
+        });
+    }
+
     // get overview indicators from overview.xml
-    $.get("overview.xml", function (data) {
+    $.get("indicators.xml", function (data) {
         $(data).children().children().each(function (index, item) {
             var indicatorName = $(item).context.tagName;
             var description;
+            var $option = $('<option></option>');
+
+            // create option and append to indicator type select
+            $option.attr({
+                'value': indicatorName,
+                'data-abbr': $(this).find('abbriveation').text(),
+                'data-full-text': $(this).find('title').text()
+            }).text($(this).find('title').text());
+
+            if ($(this).find('plot_index').length) {
+                $option.attr('data-plot-index', +$(this).find('plot_index').text());
+            }
+
+            $indicatorTypeSelect.append($option);
+
+            indicator['defaultSettings'][indicatorName] = {};
+
+            // set indicator settings to indicator object
+            $(item).find('defaults').children().each(function () {
+                var prop = camelCaseToUpperCase($(this)[0].tagName);
+                var value = $(this).text();
+
+                if (!isNaN(+value)) {
+                    value = Number(value);
+                } else {
+                    try {
+                        value = JSON.parse(value);
+                    }
+                    catch (err) {
+                    }
+                }
+
+                indicator['defaultSettings'][indicatorName][prop] = value;
+            });
 
             // description from xml
             description = $(item).find('description')[0].outerHTML;
@@ -184,11 +126,13 @@
             indicator['defaultSettings'][indicatorName]['overview']['title'] = $(item).find('title').text();
             indicator['defaultSettings'][indicatorName]['overview']['description'] = description;
         });
+
+        $indicatorTypeSelect.selectpicker();
     });
 
-    anychart.onDocumentReady(function () {
-        initHeightChart();
+    $(window).on('resize', initHeightChart);
 
+    anychart.onDocumentReady(function () {
         // To work with the data adapter you need to reference the data adapter script file from AnyChart CDN
         // (http://cdn.anychart.com/js/latest/data-adapter.min.js)
         // Load JSON data and create a chart by JSON data.
@@ -265,6 +209,10 @@
 
             // set plot index
             indicator.plotIndex = $(this).find('option[value="' + indicator.name + '"]').data().plotIndex;
+
+            if (indicator.plotIndex !== 0) {
+                indicator.plotIndex = chart.getPlotsCount();
+            }
 
             // create html if form (input/select)
             createHtmlToIndicatorForm();
@@ -367,9 +315,22 @@
         });
     });
 
-    $(window).on('resize', initHeightChart);
+    function camelCaseToUpperCase(text) {
+        var result = [];
+
+        text.split('_').filter(function (item, index) {
+            if (index == 0) {
+                result.push(item.toLowerCase());
+            } else {
+                result.push(item[0].toUpperCase() + item.substr(1).toLowerCase());
+            }
+        });
+
+        return result.join('');
+    }
 
     function initHeightChart() {
+        // debugger;
         var creditsHeight = 10;
         $('#chart-container').height($(window).height() - $indicatorNavPanel.outerHeight() - creditsHeight);
     }
@@ -459,7 +420,10 @@
         rangeSelector.render(chart);
 
         chart.listen('chartDraw', function () {
-            $('#loader').hide();
+            initHeightChart();
+            setTimeout(function(){
+                $loader.hide();
+            }, 100);
         });
 
     }
@@ -505,7 +469,8 @@
         var $indicatorFormRow = $indicatorForm.find('.row');
 
         for (key in indicatorSettings) {
-            if (indicatorSettings.hasOwnProperty(key) && key !== 'overview') {
+            if (indicatorSettings.hasOwnProperty(key) && key !== 'overview' && key !== 'plotIndex') {
+
                 if (typeof indicatorSettings[key] === 'string') {
                     $indicatorFormRow.append(selectHtml);
                     $indicatorFormGroup = $('#indicatorFormGroup');
@@ -614,7 +579,7 @@
         var indicatorSettings = indicator.defaultSettings[indicator.name];
 
         for (key in indicatorSettings) {
-            if (indicatorSettings.hasOwnProperty(key) && key !== 'overview') {
+            if (indicatorSettings.hasOwnProperty(key) && key !== 'overview' && key !== 'plotIndex') {
                 $('#' + key).val(indicatorSettings[key]);
             }
         }

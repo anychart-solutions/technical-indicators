@@ -45,7 +45,29 @@
     </div>
 </div>
 
-<!-- modal -->
+<!-- modal alert -->
+<div class="modal fade" id="warning" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Attention</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger"><strong>XHR Fail: </strong>
+                    This Sample will properly work only if upload it to a server and access via http or https. Please see <a
+                            href="https://github.com/anychart-solutions/technical-indicators" target="_blank">https://github.com/anychart-solutions/technical-indicators</a> to learn more.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal indicator settings -->
 <div class="modal fade" id="indicatorSettingsModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -105,56 +127,8 @@
         </li>
 
         <li>
-            <select class="select selectpicker show-tick" multiple name="" data-width="350" id="indicatorTypeSelect"
+            <select class="select show-tick" multiple name="" data-width="350" id="indicatorTypeSelect"
                     title="Add Indicator">
-                <option value="ama" data-abbr="AMA" data-full-text="Adaptive Moving Average (AMA)" data-plot-index="0">
-                    Adaptive Moving Average (AMA)
-                </option>
-                <option value="aroon" data-abbr="Aroon" data-full-text="Aroon Indicator" data-plot-index="1">Aroon
-                    Indicator
-                </option>
-                <option value="atr" data-abbr="ATR" data-full-text="Average True Range (ATR)" data-plot-index="2">
-                    Average True Range (ATR)
-                </option>
-                <option value="bbands" data-abbr="BBands" data-full-text="Bollinger Bands (BBands)" data-plot-index="0">
-                    Bollinger Bands (BBands)
-                </option>
-                <option value="bbandsB" data-abbr="Bbands B" data-full-text="Bollinger Bands B (BBands B)"
-                        data-plot-index="3">Bollinger Bands B (BBands B)
-                </option>
-                <option value="bbandsWidth" data-abbr="BBands Width"
-                        data-full-text="Bollinger Bands Width (BBands Width)" data-plot-index="4">Bollinger Bands Width
-                    (BBands Width)
-                </option>
-                <option value="ema" data-abbr="EMA" data-plot-index="0"
-                        data-full-text="Exponential Moving Average (EMA)">Exponential Moving Average (EMA)
-                </option>
-                <option value="fastStochastic" data-abbr="Stochastic (Fast)" data-full-text="Fast Stochastic Oscillator"
-                        data-plot-index="5">Fast Stochastic Oscillator
-                </option>
-                <option value="stochastic" data-abbr="Stochastic (Full)" data-full-text="Full Stochastic Oscillator"
-                        data-plot-index="6">Full Stochastic Oscillator
-                </option>
-                <option value="kdj" data-abbr="KDJ" data-full-text="KDJ Indicator" data-plot-index="7">KDJ Indicator
-                </option>
-                <option value="mma" data-abbr="MMA" data-full-text="Modified Moving Average (MMA)" data-plot-index="0">
-                    Modified Moving Average (MMA)
-                </option>
-                <option value="macd" data-abbr="MACD" data-full-text="Moving Average Convergence Divergence (MACD)"
-                        data-plot-index="8">Moving Average Convergence Divergence (MACD)
-                </option>
-                <option value="roc" data-abbr="ROC" data-full-text="Rate of Change (ROC)" data-plot-index="9">Rate of
-                    Change (ROC)
-                </option>
-                <option value="rsi" data-abbr="RSI" data-full-text="Relative Strength Index (RSI)" data-plot-index="10">
-                    Relative Strength Index (RSI)
-                </option>
-                <option value="sma" data-abbr="SMA" data-full-text="Simple Moving Average (SMA)" data-plot-index="0">
-                    Simple Moving Average (SMA)
-                </option>
-                <option value="slowStochastic" data-abbr="Stochastic (Slow)" data-full-text="Slow Stochastic Oscillator"
-                        data-plot-index="11">Slow Stochastic Oscillator
-                </option>
             </select>
         </li>
 
@@ -163,6 +137,7 @@
 
     <div id="chart-container"></div>
 </div>
+<img class="img-ok" src="ok.gif" alt="">
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

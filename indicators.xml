@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <indicators>
-    <ama>   
+    <ama>
         <title>Adaptive Moving Average (AMA)</title>
         <abbriveation>AMA</abbriveation>
         <description>
@@ -21,7 +21,7 @@
             </text>
         </description>
         <defaults>
-            <period>20</period>            
+            <period>20</period>
             <fast_period>2</fast_period>
             <slow_period>30</slow_period>
             <series_type>line</series_type>
@@ -30,6 +30,7 @@
     </ama>
     <aroon>
         <title>Aroon</title>
+        <abbriveation>Aroon</abbriveation>
         <description>
             <caption>Description</caption>
             <text>Developed by Tushar Chande in 1995, Aroon is an indicator system that determines whether a
@@ -54,9 +55,15 @@
                 period and types of Up and Down series.
             </text>
         </description>
+        <defaults>
+            <period>20</period>
+            <up_series_type>line</up_series_type>
+            <down_series_type>line</down_series_type>
+        </defaults>
     </aroon>
     <atr>
         <title>Average True Range (ATR)</title>
+        <abbriveation>ATR</abbriveation>
         <description>
             <caption>Description</caption>
             <text>Developed by J. Welles Wilder, the Average True Range (ATR) is an indicator that measures
@@ -77,9 +84,14 @@
                 value more than 1, and series type.
             </text>
         </description>
+        <defaults>
+            <period>14</period>
+            <series_type>line</series_type>
+        </defaults>
     </atr>
     <bbands>
         <title>Bollinger Bands (BBands)</title>
+        <abbriveation>BBands</abbriveation>
         <description>
             <caption>Description</caption>
             <text>Bollinger Bands are a volatility indicator that is displayed as two lines (bands): one
@@ -108,9 +120,18 @@
                 has burst out into a new trend.
             </text>
         </description>
+        <defaults>
+            <period>20</period>
+            <deviation>2</deviation>
+            <upper_series_type>line</upper_series_type>
+            <lower_series_type>line</lower_series_type>
+            <middle_series_type>line</middle_series_type>
+            <plot_index>0</plot_index>
+        </defaults>
     </bbands>
     <bbandsB>
         <title>Bollinger Bands %B (BBands B)</title>
+        <abbriveation>BBands B</abbriveation>
         <description>
             <caption>Description</caption>
             <text>Bollinger Bands %B is an indicator derived from Bollinger Bands.</text>
@@ -126,9 +147,15 @@
                 </list>
             </text>
         </description>
+        <defaults>
+            <period>20</period>
+            <deviation>2</deviation>
+            <series_type>line</series_type>
+        </defaults>
     </bbandsB>
     <bbandsWidth>
         <title>Bollinger Bands Width (BBands Width)</title>
+        <abbriveation>BBands Width</abbriveation>
         <description>
             <caption>Description</caption>
             <text>Bollinger Bands Width is an indicator derived from Bollinger Bands.</text>
@@ -145,9 +172,15 @@
                 "period", "deviation" and "series type".
             </text>
         </description>
+        <defaults>
+            <period>20</period>
+            <deviation>2</deviation>
+            <series_type>line</series_type>
+        </defaults>
     </bbandsWidth>
     <ema>
         <title>Exponential moving average (EMA)</title>
+        <abbriveation>EMA</abbriveation>
         <description>
             <caption>Description</caption>
             <text>An Exponential Moving Average is a trending indicator - a single line that shows the
@@ -177,9 +210,15 @@
                 resistance level.
             </text>
         </description>
+        <defaults>
+            <period>20</period>
+            <series_type>line</series_type>
+            <plot_index>0</plot_index>
+        </defaults>
     </ema>
     <stochastic>
         <title>Stochastic Oscillator (Full)</title>
+        <abbriveation>Stochastic (Full)</abbriveation>
         <description>
             <caption>Description</caption>
             <text>The Full Stochastic Oscillator is a momentum indicator that consists of two lines - %K and
@@ -216,9 +255,20 @@
                 oversold.
             </text>
         </description>
+        <defaults>
+            <k_period>14</k_period>
+            <kma_period>1</kma_period>
+            <d_period>3</d_period>
+            <smoothing_type>["sma", "ema"]</smoothing_type>
+            <kma_type>sma</kma_type>
+            <dma_type>sma</dma_type>
+            <k_series_type>line</k_series_type>
+            <d_series_type>line</d_series_type>
+        </defaults>
     </stochastic>
     <fastStochastic>
         <title>Stochastic Oscillator (Fast)</title>
+        <abbriveation>Stochastic (Fast)</abbriveation>
         <description>
             <caption>Description</caption>
             <text>The Fast Stochastic Oscillator is a momentum indicator that consists of two lines - %K and
@@ -251,9 +301,20 @@
                 below 20 - shows the market may be oversold.
             </text>
         </description>
+        <defaults>
+            <k_period>20</k_period>
+            <kma_period>10</kma_period>
+            <d_period>3</d_period>
+            <smoothing_type>["sma", "ema"]</smoothing_type>
+            <kma_type>sma</kma_type>
+            <dma_type>sma</dma_type>
+            <k_series_type>line</k_series_type>
+            <d_series_type>line</d_series_type>
+        </defaults>
     </fastStochastic>
     <slowStochastic>
         <title>Stochastic Oscillator (Slow)</title>
+        <abbriveation>Stochastic (Slow)</abbriveation>
         <description>
             <caption>Description</caption>
             <text>
@@ -289,9 +350,20 @@
                 - shows the market may be oversold.
             </text>
         </description>
+        <defaults>
+            <k_period>14</k_period>
+            <kma_period>3</kma_period>
+            <d_period>3</d_period>
+            <smoothing_type>["sma", "ema"]</smoothing_type>
+            <kma_type>sma</kma_type>
+            <dma_type>sma</dma_type>
+            <k_series_type>line</k_series_type>
+            <d_series_type>line</d_series_type>
+        </defaults>
     </slowStochastic>
     <kdj>
         <title>KDJ</title>
+        <abbriveation>KDJ</abbriveation>
         <description>
             <caption>Description</caption>
             <text>KDJ indicator is a technical indicator used to analyze and predict changes in stock trends
@@ -323,9 +395,23 @@
                 </list>
             </text>
         </description>
+        <defaults>
+            <k_period>14</k_period>
+            <kma_period>5</kma_period>
+            <d_period>5</d_period>
+            <smoothing_type>["sma", "ema"]</smoothing_type>
+            <kma_type>ema</kma_type>
+            <dma_type>ema</dma_type>
+            <k_multiplier>-2</k_multiplier>
+            <d_multiplier>3</d_multiplier>
+            <k_series_type>line</k_series_type>
+            <d_series_type>line</d_series_type>
+            <j_series_type>line</j_series_type>
+        </defaults>
     </kdj>
     <mma>
         <title>Modified Moving Average (MMA)</title>
+        <abbriveation>MMA</abbriveation>
         <description>
             <caption>Description</caption>
             <text>
@@ -351,9 +437,15 @@
                 method.
             </text>
         </description>
+        <defaults>
+            <period>20</period>
+            <series_type>line</series_type>
+            <plot_index>0</plot_index>
+        </defaults>
     </mma>
     <macd>
         <title>Moving Average Convergence/Divergence (MACD)</title>
+        <abbriveation>MACD</abbriveation>
         <description>
             <caption>Description</caption>
             <text>
@@ -382,9 +474,18 @@
                 signal line in the MACD shows bearish momentum.
             </text>
         </description>
+        <defaults>
+            <fast_period>12</fast_period>
+            <slow_period>26</slow_period>
+            <signal_period>9</signal_period>
+            <macd_series_type>line</macd_series_type>
+            <signal_series_type>line</signal_series_type>
+            <histogram_series_type>column</histogram_series_type>
+        </defaults>
     </macd>
     <roc>
         <title>Rate of Change (ROC)</title>
+        <abbriveation>ROC</abbriveation>
         <description>
             <caption>Description</caption>
             <text>
@@ -411,9 +512,14 @@
                 momentum.
             </text>
         </description>
+        <defaults>
+            <period>20</period>
+            <series_type>line</series_type>
+        </defaults>
     </roc>
     <rsi>
-        <title>Rate of Change (ROC)</title>
+        <title>Relative Strength Index (RSI)</title>
+        <abbriveation>RSI</abbriveation>
         <description>
             <caption>Description</caption>
             <text>
@@ -438,9 +544,14 @@
                 be oversold.
             </text>
         </description>
+        <defaults>
+            <period>14</period>
+            <series_type>line</series_type>
+        </defaults>
     </rsi>
     <sma>
         <title>Simple Moving Average (SMA)</title>
+        <abbriveation>SMA</abbriveation>
         <description>
             <caption>Description</caption>
             <text>
@@ -471,5 +582,10 @@
                 downtrending SMA line - the Simple Moving Average can act as a possible resistance level.
             </text>
         </description>
+        <defaults>
+            <period>14</period>
+            <series_type>line</series_type>
+            <plot_index>0</plot_index>
+        </defaults>
     </sma>
 </indicators>
