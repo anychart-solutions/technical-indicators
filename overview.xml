@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <indicators>
-    <ama>
+    <ama>   
         <title>Adaptive Moving Average (AMA)</title>
+        <abbriveation>AMA</abbriveation>
         <description>
             <caption>Description</caption>
             <text>
@@ -19,6 +20,13 @@
                 the seriesType() method.
             </text>
         </description>
+        <defaults>
+            <period>20</period>            
+            <fast_period>2</fast_period>
+            <slow_period>30</slow_period>
+            <series_type>line</series_type>
+            <plot_index>0</plot_index>
+        </defaults>
     </ama>
     <aroon>
         <title>Aroon</title>
