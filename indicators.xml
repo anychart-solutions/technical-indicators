@@ -2,22 +2,17 @@
 <indicators>
     <ama>
         <title>Adaptive Moving Average (AMA)</title>
-        <abbriveation>AMA</abbriveation>
+        <abbreviation>AMA</abbreviation>
         <description>
             <caption>Description</caption>
             <text>
-                An Adaptive Moving Average (AMA) is another indicator like SMA, MMA and EMA, but has more parameters. It
-                changes its sensitivity due to the price fluctuations. The Adaptive Moving Average becomes more
-                sensitive during periods when price is moving in a certain direction and becomes less sensitive to price
+                An Adaptive Moving Average (AMA) is an indicator similar to SMA, MMA and EMA. AMA changes its sensitivity due to the price fluctuations. The Adaptive Moving Average becomes more sensitive during periods when price is moving in a certain direction and becomes less sensitive to price
                 movements when it become unstable.
             </text>
 
             <caption>Parameters</caption>
             <text>
-                AMA indicator needs five parameters: mapping with value field in it (required), three periods:
-                period, fast period and slow period; and a type of series. It is possible to change the series type any
-                time using
-                the seriesType() method.
+                AMA indicator parameters are: period, fast period and slow period.
             </text>
         </description>
         <defaults>
@@ -30,30 +25,18 @@
     </ama>
     <aroon>
         <title>Aroon</title>
-        <abbriveation>Aroon</abbriveation>
+        <abbreviation>Aroon</abbreviation>
         <description>
             <caption>Description</caption>
-            <text>Developed by Tushar Chande in 1995, Aroon is an indicator system that determines whether a
-                stock is trending or not and how strong the trend is. "Aroon" means "Dawn's Early Light" in Sanskrit.
-                Chande
-                chose this name because the indicators are designed to reveal the beginning of a new trend.
+            <text>
+                Developed by Tushar Chande in 1995, Aroon is an indicator system that determines whether a stock is trending or not and how strong the trend is. "Aroon" means "Dawn's Early Light" in Sanskrit. Chande chose this name because the indicators are designed to reveal the beginning of a new trend.
             </text>
             <text>
-                The Aroon indicators measure the number of periods since price recorded an x-day high or low. There are
-                two
-                separate indicators: Aroon-Up and Aroon-Down. A 25-day Aroon-Up measures the number of days since a
-                25-day
-                high. A 25-day Aroon-Down measures the number of days since a 25-day low. In this sense, the Aroon
-                indicators are quite different from typical momentum oscillators, which focus on price relative to time.
-                Aroon is unique because it focuses on time relative to price. Chartists can use the Aroon indicators to
-                spot
-                emerging trends, identify consolidations, define correction periods and anticipate reversals.
+                The Aroon indicators measure the number of periods since price recorded an x-day high or low. There are two separate indicators: Aroon-Up and Aroon-Down. A 25-day Aroon-Up measures the number of days since a 25-day high. A 25-day Aroon-Down measures the number of days since a 25-day low. In this sense, the Aroon indicators are quite different from typical momentum oscillators, which focus on price relative to time. Aroon is unique because it focuses on time relative to price. Chartists can use the Aroon indicators to spot emerging trends, identify consolidations, define correction periods and anticipate reversals.
             </text>
 
             <caption>Parameters</caption>
-            <text>Aroon indicator has only one type specific parameter - period: mapping with value field in it,
-                period and types of Up and Down series.
-            </text>
+            <text>Aroon indicator has only one parameter: the period.</text>
         </description>
         <defaults>
             <period>20</period>
@@ -63,25 +46,15 @@
     </aroon>
     <atr>
         <title>Average True Range (ATR)</title>
-        <abbriveation>ATR</abbriveation>
+        <abbreviation>ATR</abbreviation>
         <description>
             <caption>Description</caption>
-            <text>Developed by J. Welles Wilder, the Average True Range (ATR) is an indicator that measures
-                volatility. As with most of his indicators, Wilder designed ATR with commodities and daily prices in
-                mind.
-                Commodities are frequently more volatile than stocks. They were are often subject to gaps and limit
-                moves,
-                which occur when a commodity opens up or down its maximum allowed move for the session. A volatility
-                formula
-                based only on the high-low range would fail to capture volatility from gap or limit moves. Wilder
-                created
-                Average True Range to capture this "missing" volatility. It is important to remember that ATR does not
-                provide an indication of price direction, just volatility.
+            <text>
+                Developed by J. Welles Wilder, the Average True Range (ATR) is an indicator that measures volatility. As with most of his indicators, Wilder designed ATR with commodities and daily prices in mind. Commodities are frequently more volatile than stocks. They were are often subject to gaps and limit moves, which occur when a commodity opens up or down its maximum allowed move for the session. A volatility formula based only on the high-low range would fail to capture volatility from gap or limit moves. Wilder created Average True Range to capture this "missing" volatility. It is important to remember that ATR does not provide an indication of price direction, just volatility.
             </text>
 
             <caption>Parameters</caption>
-            <text>Average True Range indicator has three parameters: mapping, period, which has to be an integer
-                value more than 1, and series type.
+            <text>Average True Range indicator has only one parameter: the period.
             </text>
         </description>
         <defaults>
@@ -91,34 +64,26 @@
     </atr>
     <bbands>
         <title>Bollinger Bands (BBands)</title>
-        <abbriveation>BBands</abbriveation>
+        <abbreviation>BBands</abbreviation>
         <description>
             <caption>Description</caption>
-            <text>Bollinger Bands are a volatility indicator that is displayed as two lines (bands): one
-                drawn
-                above a simple moving average of the price and one - below. These bands move closer to the moving
-                average
-                when price volatility is low and move farther away from the moving average when price volatility
-                increases.
+            <text>
+                Bollinger Bands are a volatility indicator that is displayed as two lines (bands): one drawn above a simple moving average of the price and one - below. These bands move closer to the moving average when price volatility is low and move farther away from the moving average when price volatility increases.
             </text>
 
             <caption>Parameters</caption>
-            <text>Bollinger Bands parameters can be adjusted. The default parameters are: 20 periods for the
-                simple moving average and 2 for the standard deviations (the distance between each band and the SMA).
-                Increasing the number of periods - decreases the volatility of the SMA, and decreasing their number -
-                increases the volatility of the SMA. Increasing the number of standard deviations moves the bands
-                farther
-                away from the SMA, and decreasing - moves the bands closer to the SMA.
+            <text>
+                Bollinger Bands parameters can be adjusted. The default parameters are: 20 periods for the simple moving average and 2 for the standard deviations (the distance between each band and the SMA). Increasing the number of periods - decreases the volatility of the SMA, and decreasing their number - increases the volatility of the SMA. Increasing the number of standard deviations moves the bands farther away from the SMA, and decreasing - moves the bands closer to the SMA.
             </text>
 
             <caption>Function</caption>
-            <text>Bollinger Bands are used to determine how volatile a stock is. Stocks move between levels
-                of
-                high and low volatility, and when the Bollinger bands grip a stock, it is a sign that the stock is
-                consolidating and that a breakout is inevitable. When the Bollinger bands widen, it is a sign that the
-                stock
-                has burst out into a new trend.
+            <text>
+                Bollinger Bands are used to determine how volatile a stock is. Stocks move between levels of high and low volatility, and when the Bollinger bands grip a stock, it is a sign that the stock is consolidating and that a breakout is inevitable. When the Bollinger bands widen, it is a sign that the stock has burst out into a new trend.
             </text>
+
+            <caption>Parameters</caption>
+            <text>Bollinger Bands parameters are the period and the deviation.
+            </text>            
         </description>
         <defaults>
             <period>20</period>
@@ -131,12 +96,12 @@
     </bbands>
     <bbandsB>
         <title>Bollinger Bands %B (BBands B)</title>
-        <abbriveation>BBands B</abbriveation>
+        <abbreviation>BBands B</abbreviation>
         <description>
             <caption>Description</caption>
             <text>Bollinger Bands %B is an indicator derived from Bollinger Bands.</text>
-            <text>%B quantifies a security's price relative to the upper and lower Bollinger Band. There are six basic
-                relationship levels:
+            <text>
+                %B quantifies a security's price relative to the upper and lower Bollinger Band. There are six basic relationship levels:
                 <list>
                     <listItem>%B equals 1 when price is at the upper band</listItem>
                     <listItem>%B equals 0 when price is at the lower band</listItem>
@@ -146,6 +111,11 @@
                     <listItem>%B is below .50 when price is below the middle band (SMA)</listItem>
                 </list>
             </text>
+
+            <caption>Parameters</caption>
+            <text>
+                Bollinger Bands %B parameters are the period and the deviation.
+            </text>              
         </description>
         <defaults>
             <period>20</period>
@@ -155,22 +125,16 @@
     </bbandsB>
     <bbandsWidth>
         <title>Bollinger Bands Width (BBands Width)</title>
-        <abbriveation>BBands Width</abbriveation>
+        <abbreviation>BBands Width</abbreviation>
         <description>
             <caption>Description</caption>
             <text>Bollinger Bands Width is an indicator derived from Bollinger Bands.</text>
-            <text>Non-normalized Bollinger Bands Width measures the distance, or difference, between the upper band and
-                the
-                lower band. Bollinger Bands Width decreases as Bollinger Bands narrow and increases as Bollinger Bands
-                widen
-                because Bollinger Bands are based on the standard deviation.
+            <text>
+                Non-normalized Bollinger Bands Width measures the distance, or difference, between the upper band and the lower band. Bollinger Bands Width decreases Bollinger Bands narrow and increases as Bollinger Bands widen because Bollinger Bands are based on the standard deviation.
             </text>
-
             <caption>Parameters</caption>
-            <text>Bollinger Bands Width indicator requires only the "mapping" parameter. Optional parameters
-                are
-                "period", "deviation" and "series type".
-            </text>
+            <text>Bollinger Bands Width parameters are the period and the deviation.
+            </text> 
         </description>
         <defaults>
             <period>20</period>
@@ -180,35 +144,25 @@
     </bbandsWidth>
     <ema>
         <title>Exponential moving average (EMA)</title>
-        <abbriveation>EMA</abbriveation>
+        <abbreviation>EMA</abbreviation>
         <description>
             <caption>Description</caption>
-            <text>An Exponential Moving Average is a trending indicator - a single line that shows the
-                weighted
-                mean of the stock price during a specified period of time. This type of moving average that is similar
-                to a
-                Simple Moving Average, except that more weight is given to the latest data.
+            <text>
+                An Exponential Moving Average is a trending indicator - a single line that shows the weighted mean of the stock price during a specified period of time. This type of moving average that is similar to a Simple Moving Average, except that more weight is given to the latest data.
             </text>
 
             <caption>Parameters</caption>
-            <text>EMA period parameter can be adjusted. The default parameter is 20 periods. Increasing the
-                number of periods will decrease the volatility, and decreasing the number of periods will increase the
-                volatility.
+            <text>
+                EMA period parameter can be adjusted. The default parameter is 20 periods. Increasing the number of periods will decrease the volatility, and decreasing the number of periods will increase the volatility.
             </text>
 
             <caption>Function</caption>
-            <text>Exponential Moving Averages are used by traders to detect the trend of the stock and to
-                identify possible levels of support and resistance. If the Exponential Moving Average is trending higher
-                and
-                the price is above it, the stock is considered to be in an uptrend, in other case - if it is trending
-                lower
-                and the price is below it, the stock is considered to be in a downtrend. Also, when the price is above
-                an
-                uptrending EMA line, the Exponential Moving Average can act as a possible support level. In the same
-                way,
-                when the price below a downtrending EMA line - the Exponential Moving Average can act as a possible
-                resistance level.
+            <text>
+                Exponential Moving Averages are used by traders to detect the trend of the stock and to identify possible levels of support and resistance. If the Exponential Moving Average is trending higher and the price is above it, the stock is considered to be in an uptrend, in other case - if it is trending lower and the price is below it, the stock is considered to be in a downtrend. Also, when the price is above an uptrending EMA line, the Exponential Moving Average can act as a possible support level. In the same way, when the price below a downtrending EMA line - the Exponential Moving Average can act as a possible resistance level.
             </text>
+
+            <caption>Parameters</caption>
+            <text>EMA indicator has only one parameter: the period.</text>            
         </description>
         <defaults>
             <period>20</period>
@@ -218,41 +172,21 @@
     </ema>
     <stochastic>
         <title>Stochastic Oscillator (Full)</title>
-        <abbriveation>Stochastic (Full)</abbriveation>
+        <abbreviation>Stochastic (Full)</abbreviation>
         <description>
             <caption>Description</caption>
-            <text>The Full Stochastic Oscillator is a momentum indicator that consists of two lines - %K and
-                %D,
-                these lines move in a range between 0 and 100. The full stochastic shows the interrelation of the
-                current
-                closing price to the trading range in the past. If the current closing price is toward the top of the
-                past
-                trading range, %K moves higher. If the current closing price is toward the bottom of the past trading
-                range,
-                %K moves lower.
+            <text>
+                The Full Stochastic Oscillator is a momentum indicator that consists of two lines - %K and %D, these lines move in a range between 0 and 100. The full stochastic shows the interrelation of the current closing price to the trading range in the past. If the current closing price is toward the top of the past trading range, %K moves higher. If the current closing price is toward the bottom of the past trading range, %K moves lower.
             </text>
 
             <caption>Parameters</caption>
-            <text>The full stochastic parameters can be adjusted. The default parameters are 20 periods for
-                the
-                time frame, 5 periods for the %K, and 3 periods for the %D smoothing. Increasing the number of periods
-                for
-                the time frame decreases the volatility of the full stochastic, decreasing the number of periods for the
-                time frame increases the volatility of the full stochastic. Increasing the number of periods for the %K
-                decreases the volatility of the %K line, and decreasing the number of periods for the time frame
-                increases
-                the volatility of the %K line. Also, increasing the number of periods for the %D smoothing decrease the
-                volatility of the %D line, and decreasing the number of periods for the time frame increases the
-                volatility
-                of the %D line.
+            <text>
+                The full stochastic parameters can be adjusted. The default parameters are 20 periods for the time frame, 5 periods for the %K, and 3 periods for the %D smoothing. Increasing the number of periods for the time frame decreases the volatility of the full stochastic, decreasing the number of periods for the time frame increases the volatility of the full stochastic. Increasing the number of periods for the %K decreases the volatility of the %K line, and decreasing the number of periods for the time frame increases the volatility of the %K line. Also, increasing the number of periods for the %D smoothing decrease the volatility of the %D line, and decreasing the number of periods for the time frame increases the volatility of the %D line.
             </text>
 
             <caption>Function</caption>
-            <text>The Full Stochastic Oscillator is used to determine is there bullish or bearish momentum
-                behind a stock. When %K is above %D, the full stochastic shows bullish momentum, %K below %D - shows
-                bearish
-                momentum. Also, %K above 80 shows the market may be overbought, and %K below 20 - the market may be
-                oversold.
+            <text>
+                The Full Stochastic Oscillator is used to determine is there bullish or bearish momentum behind a stock. When %K is above %D, the full stochastic shows bullish momentum, %K below %D - shows bearish momentum. Also, %K above 80 shows the market may be overbought, and %K below 20 - the market may be oversold.
             </text>
         </description>
         <defaults>
@@ -268,37 +202,21 @@
     </stochastic>
     <fastStochastic>
         <title>Stochastic Oscillator (Fast)</title>
-        <abbriveation>Stochastic (Fast)</abbriveation>
+        <abbreviation>Stochastic (Fast)</abbreviation>
         <description>
             <caption>Description</caption>
-            <text>The Fast Stochastic Oscillator is a momentum indicator that consists of two lines - %K and
-                %D,
-                these lines move in the range between 0 and 100. The fast stochastic shows the interrelation of the
-                current
-                closing price to the trading range in the past. When the current closing price is toward the top of the
-                past
-                trading range, %K moves higher. If the current closing price is toward the bottom of the past trading
-                range,
-                %K moves lower.
+            <text>
+                The Fast Stochastic Oscillator is a momentum indicator that consists of two lines - %K and %D, these lines move in the range between 0 and 100. The fast stochastic shows the interrelation of the current closing price to the trading range in the past. When the current closing price is toward the top of the past trading range, %K moves higher. If the current closing price is toward the bottom of the past trading range, %K moves lower.
             </text>
 
             <caption>Parameters</caption>
-            <text>The fast stochastic parameters can be adjusted. The default parameters are 20 periods for
-                the
-                time frame and 3 periods for the %D smoothing. Increasing the number of periods for the time frame
-                decreases
-                the volatility of the indicator, and decreasing the number of periods - decreases the volatility.
-                Increasing
-                the number of periods for the %D smoothing decreases the volatility of the %D line and decreasing the
-                number
-                of periods for the time frame increases the volatility of the %D line.
+            <text>
+                The fast stochastic parameters can be adjusted. The default parameters are 20 periods for the time frame and 3 periods for the %D smoothing. Increasing the number of periods for the time frame decreases the volatility of the indicator, and decreasing the number of periods - decreases the volatility. Increasing the number of periods for the %D smoothing decreases the volatility of the %D line and decreasing the number of periods for the time frame increases the volatility of the %D line.
             </text>
 
             <caption>Function</caption>
-            <text>The Fast Stochastic Oscillator is used to determine whether there is bullish or bearish
-                momentum behind a stock. %K above %D in the fast stochastic shows a bullish momentum, and %K below %D -
-                shows a bearish momentum. Also, when %K is above 80, it shows that the market may be overbought, and %K
-                below 20 - shows the market may be oversold.
+            <text>
+                The Fast Stochastic Oscillator is used to determine whether there is bullish or bearish momentum behind a stock. %K above %D in the fast stochastic shows a bullish momentum, and %K below %D - shows a bearish momentum. Also, when %K is above 80, it shows that the market may be overbought, and %K below 20 - shows the market may be oversold.
             </text>
         </description>
         <defaults>
@@ -314,40 +232,21 @@
     </fastStochastic>
     <slowStochastic>
         <title>Stochastic Oscillator (Slow)</title>
-        <abbriveation>Stochastic (Slow)</abbriveation>
+        <abbreviation>Stochastic (Slow)</abbreviation>
         <description>
             <caption>Description</caption>
             <text>
-                The Slow Stochastic Oscillator is a momentum indicator that consists of two lines - %K and %D, these
-                lines
-                move in the range between 0 and 100. The slow stochastic shows the interrelation of the current closing
-                price to the trading range in the past. If the current closing price is toward the top of the past
-                trading
-                range, %K moves higher. If the current closing price is toward the bottom of the past trading range, %K
-                moves lower.
+                The Slow Stochastic Oscillator is a momentum indicator that consists of two lines - %K and %D, these lines move in the range between 0 and 100. The slow stochastic shows the interrelation of the current closing price to the trading range in the past. If the current closing price is toward the top of the past trading range, %K moves higher. If the current closing price is toward the bottom of the past trading range, %K moves lower.
             </text>
 
             <caption>Parameters</caption>
-            <text>Slow stochastic parameters can be adjusted. The default parameters are 20 periods for the
-                time
-                frame and 5 periods for the %D smoothing. Increasing the number of periods for the time frame decreases
-                the
-                volatility of the slow stochastic, and decreasing the number of periods for the time frame will increase
-                the
-                volatility of the slow stochastic. Also, increasing the number of periods for the %D smoothing decreases
-                the
-                volatility of the %D line, and decreasing the number of periods for the time frame increases the
-                volatility
-                of the %D line.
+            <text>
+                Slow stochastic parameters can be adjusted. The default parameters are 20 periods for the time frame and 5 periods for the %D smoothing. Increasing the number of periods for the time frame decreases the volatility of the slow stochastic, and decreasing the number of periods for the time frame will increase the volatility of the slow stochastic. Also, increasing the number of periods for the %D smoothing decreases the volatility of the %D line, and decreasing the number of periods for the time frame increases the volatility of the %D line.
             </text>
 
             <caption>Function</caption>
-            <text>The Slow Stochastic Oscillator is used to determine whether there is bullish or bearish
-                momentum behind a stock. %K above %D in the slow stochastic shows bullish momentum, and %K below %D -
-                shows
-                bearish momentum. Also, when %K is above 80, it shows the market may be overbought, and when %K is below
-                20
-                - shows the market may be oversold.
+            <text>
+                The Slow Stochastic Oscillator is used to determine whether there is bullish or bearish momentum behind a stock. %K above %D in the slow stochastic shows bullish momentum, and %K below %D - shows bearish momentum. Also, when %K is above 80, it shows the market may be overbought, and when %K is below 20 - shows the market may be oversold.
             </text>
         </description>
         <defaults>
@@ -363,23 +262,14 @@
     </slowStochastic>
     <kdj>
         <title>KDJ</title>
-        <abbriveation>KDJ</abbriveation>
+        <abbreviation>KDJ</abbreviation>
         <description>
             <caption>Description</caption>
-            <text>KDJ indicator is a technical indicator used to analyze and predict changes in stock trends
-                and
-                price patterns in a traded asset. KDJ indicator is also known as the random index. It is a very
-                practical
-                technical indicator which is most commonly used in market trend analysis of short-term stock.
+            <text>
+                KDJ indicator is a technical indicator used to analyze and predict changes in stock trends and price patterns in a traded asset. KDJ indicator is also known as the random index. It is a very practical technical indicator which is most commonly used in market trend analysis of short-term stock.
             </text>
-            <text>KDJ is a derived form of the Stochastic Oscillator Indicator with the only difference of having an
-                extra
-                line called the J line. Values of %K and %D lines show if the security is overbought (over 80) or
-                oversold
-                (below 20). The moments of %K crossing %D are the moments for selling or buying. The J line represents
-                the
-                divergence of the %D value from the %K. The value of J can go beyond [0, 100] for %K and %D lines on the
-                chart.
+            <text>
+                KDJ is a derived form of the Stochastic Oscillator Indicator with the only difference of having an extra line called the J line. Values of %K and %D lines show if the security is overbought (over 80) or oversold (below 20). The moments of %K crossing %D are the moments for selling or buying. The J line represents the divergence of the %D value from the %K. The value of J can go beyond [0, 100] for %K and %D lines on the chart.
             </text>
 
             <caption>Parameters</caption>
@@ -411,31 +301,17 @@
     </kdj>
     <mma>
         <title>Modified Moving Average (MMA)</title>
-        <abbriveation>MMA</abbriveation>
+        <abbreviation>MMA</abbreviation>
         <description>
             <caption>Description</caption>
             <text>
-                A Modified Moving Average (MMA) (also known as Running Moving Average (RMA), or SMoothed Moving Average
-                (SMMA)) is an indicator that shows the average value of a security's price over a period of time. It
-                works
-                very similar to the Exponential Moving Average, they are equivalent but for different periods (e.g. the
-                MMA
-                value for a 14-day period will be the same as EMA-value for a 27-days period).
+                A Modified Moving Average (MMA) (also known as Running Moving Average (RMA), or SMoothed Moving Average (SMMA)) is an indicator that shows the average value of a security's price over a period of time. It works very similar to the Exponential Moving Average, they are equivalent but for different periods (e.g. the MMA value for a 14-day period will be the same as EMA-value for a 27-days period).
             </text>
-            <text>MMA is partly calculated like SMA: the first point of the MMA is calculated the same way it is done
-                for
-                SMA.
-                However, other points are calculated differently:the new price is added first and then the last average
-                is
-                subtracted from the resulting sum.
+            <text>
+                MMA is partly calculated like SMA: the first point of the MMA is calculated the same way it is done for SMA. However, other points are calculated differently:the new price is added first and then the last average is subtracted from the resulting sum.
             </text>
-
             <caption>Parameters</caption>
-            <text>MMA indicator needs three parameters, as SMA and EMA: mapping with value field in it,
-                period
-                and a type of series. It is possible to change the series type at any time using the seriesType()
-                method.
-            </text>
+            <text>MMA indicator has only one parameter: the period.</text>
         </description>
         <defaults>
             <period>20</period>
@@ -445,33 +321,20 @@
     </mma>
     <macd>
         <title>Moving Average Convergence/Divergence (MACD)</title>
-        <abbriveation>MACD</abbriveation>
+        <abbreviation>MACD</abbreviation>
         <description>
             <caption>Description</caption>
             <text>
-                The Moving Average Convergence/Divergence (MACD) is a momentum indicator that consists of two lines - an
-                indicator line and a signal line. The indicator line displays the difference between two exponential
-                moving
-                averages with different smoothing factors, and the signal line displays an exponential moving average of
-                the
-                difference between mentioned two exponential moving averages.
+                The Moving Average Convergence/Divergence (MACD) is a momentum indicator that consists of two lines - an indicator line and a signal line. The indicator line displays the difference between two exponential moving averages with different smoothing factors, and the signal line displays an exponential moving average of the difference between mentioned two exponential moving averages.
             </text>
-
             <caption>Parameters</caption>
-            <text>MACD parameters can be adjusted. The default parameters are 26 for the slow exponential
-                moving
-                average, 12 for the fast exponential moving average and 20 for the signal line. Decreasing any of the
-                parameters decreases the volatility of the related line, and increasing them - increases the volatility
-                of
-                the related line.
+            <text>
+                MACD parameters can be adjusted. The default parameters are 26 for the slow exponential moving average, 12 for the fast exponential moving average and 20 for the signal line. Decreasing any of the parameters decreases the volatility of the related line, and increasing them - increases the volatility of the related line.
             </text>
 
             <caption>Function</caption>
-            <text>The MACD is used to determine is there bullish or bearish momentum behind a stock. When
-                the
-                indicator line is above the signal line, the MACD shows bullish momentum, and the indicator line below
-                the
-                signal line in the MACD shows bearish momentum.
+            <text>
+                The MACD is used to determine is there bullish or bearish momentum behind a stock. When the indicator line is above the signal line, the MACD shows bullish momentum, and the indicator line below the signal line in the MACD shows bearish momentum.
             </text>
         </description>
         <defaults>
@@ -485,31 +348,21 @@
     </macd>
     <roc>
         <title>Rate of Change (ROC)</title>
-        <abbriveation>ROC</abbriveation>
+        <abbreviation>ROC</abbreviation>
         <description>
             <caption>Description</caption>
             <text>
-                The Rate of Change oscillator is a momentum indicator that consists of one line. The ROC measures the
-                percentage change in the price from one trading period to the next. If the percentage change is big, the
-                ROC
-                line moves harshly up or down, depending on price changing direction. In other case - if the percentage
-                change is small, the ROC line moves slowly up or down, depending on the price changing direction.
+                The Rate of Change oscillator is a momentum indicator that consists of one line. The ROC measures the percentage change in the price from one trading period to the next. If the percentage change is big, the ROC line moves harshly up or down, depending on price changing direction. In other case - if the percentage change is small, the ROC line moves slowly up or down, depending on the price changing direction.
             </text>
 
             <caption>Parameters</caption>
-            <text>The ROC indicator parameters can be adjusted. The default parameter is 12 periods for the
-                time
-                frame. Increasing the number of periods for the time frame decreases the volatility of the ROC
-                indicator,
-                and decreasing the number of periods for the time frame increases the volatility of the ROC indicator.
+            <text>
+                The ROC indicator parameters can be adjusted. The default parameter is 12 periods for the time frame. Increasing the number of periods for the time frame decreases the volatility of the ROC indicator, and decreasing the number of periods for the time frame increases the volatility of the ROC indicator.
             </text>
 
             <caption>Function</caption>
-            <text>The ROC oscillator is used to determine is there bullish or bearish momentum behind a
-                stock.
-                The ROC line above the zero line shows bullish momentum, and the ROC line below the zero line shows
-                bearish
-                momentum.
+            <text>
+                The ROC oscillator is used to determine is there bullish or bearish momentum behind a stock. The ROC line above the zero line shows bullish momentum, and the ROC line below the zero line shows bearish momentum.
             </text>
         </description>
         <defaults>
@@ -519,29 +372,21 @@
     </roc>
     <rsi>
         <title>Relative Strength Index (RSI)</title>
-        <abbriveation>RSI</abbriveation>
+        <abbreviation>RSI</abbreviation>
         <description>
             <caption>Description</caption>
             <text>
-                The Relative Strength Index (RSI) oscillator is a momentum indicator that consists of one line that
-                moves in
-                a range between 0 and 100.
+                The Relative Strength Index (RSI) oscillator is a momentum indicator that consists of one line that moves in a range between 0 and 100.
             </text>
 
             <caption>Parameters</caption>
-            <text>The RSI parameters are adjustable. The default parameter is 14 periods for the time frame.
-                Increasing the number of periods for the time frame decreases the volatility of the RSI, and decreasing
-                the
-                number of periods for the time frame decreases it.
+            <text>
+                The RSI parameters are adjustable. The default parameter is 14 periods for the time frame. Increasing the number of periods for the time frame decreases the volatility of the RSI, and decreasing the number of periods for the time frame decreases it.
             </text>
 
             <caption>Function</caption>
-            <text>The RSI oscillator is used to determine is there bullish or bearish momentum behind a
-                stock.
-                The RSI line moving higher shows bullish momentum, and the RSI line moving lower shows bearish momentum.
-                Also, the RSI line above 70 shows the market may be overbought, and the RSI line below 30 - the market
-                may
-                be oversold.
+            <text>
+                The RSI oscillator is used to determine is there bullish or bearish momentum behind a stock. The RSI line moving higher shows bullish momentum, and the RSI line moving lower shows bearish momentum. Also, the RSI line above 70 shows the market may be overbought, and the RSI line below 30 - the market may be oversold.
             </text>
         </description>
         <defaults>
@@ -551,35 +396,21 @@
     </rsi>
     <sma>
         <title>Simple Moving Average (SMA)</title>
-        <abbriveation>SMA</abbriveation>
+        <abbreviation>SMA</abbreviation>
         <description>
             <caption>Description</caption>
             <text>
-                A Simple Moving Average is a trending indicator that is displayed as a single line that shows the mean
-                price
-                during a specified period of time. For example, a 20-day SMA shows the average stock price during the
-                last
-                20 trading periods (including the current period).
+                A Simple Moving Average is a trending indicator that is displayed as a single line that shows the mean price during a specified period of time. For example, a 20-day SMA shows the average stock price during the last 20 trading periods (including the current period).
             </text>
 
             <caption>Parameters</caption>
-            <text>SMA period parameter can be adjusted. The default parameter is 20 periods. Increasing the
-                number of periods will decrease the volatility, and decreasing the number of periods will increase the
-                volatility.
+            <text>
+                SMA period parameter can be adjusted. The default parameter is 20 periods. Increasing the number of periods will decrease the volatility, and decreasing the number of periods will increase the volatility.
             </text>
 
             <caption>Usage</caption>
-            <text>Simple Moving Averages are used by traders to detect the trend of the stock and to
-                identify
-                possible levels of support and resistance. If the Simple Moving Average is trending higher and the price
-                is
-                above it, the stock is considered to be in an uptrend, in other case - if it is trending lower and the
-                price
-                is below it, the stock is considered to be in a downtrend. Also, when the price is above an uptrending
-                SMA
-                line, the Simple Moving Average can act as a possible support level. In the same way, when the price
-                below a
-                downtrending SMA line - the Simple Moving Average can act as a possible resistance level.
+            <text>
+                Simple Moving Averages are used by traders to detect the trend of the stock and to identify possible levels of support and resistance. If the Simple Moving Average is trending higher and the price is above it, the stock is considered to be in an uptrend, in other case - if it is trending lower and the price is below it, the stock is considered to be in a downtrend. Also, when the price is above an uptrending SMA line, the Simple Moving Average can act as a possible support level. In the same way, when the price below a downtrending SMA line - the Simple Moving Average can act as a possible resistance level.
             </text>
         </description>
         <defaults>

@@ -81,7 +81,7 @@
             // create option and append to indicator type select
             $option.attr({
                 'value': indicatorName,
-                'data-abbr': $(this).find('abbriveation').text(),
+                'data-abbr': $(this).find('abbreviation').text(),
                 'data-full-text': $(this).find('title').text()
             }).text($(this).find('title').text());
 
