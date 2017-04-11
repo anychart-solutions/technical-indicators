@@ -66,8 +66,9 @@
     if (location.protocol === 'file:') {
         $loader.hide();
         $('.wrapper').hide();
-        $('#warning').modal('show').on('hidden.bs.modal', function () {
-            $('.img-ok').fadeIn();
+        $('#warning').modal({
+            backdrop: 'static',
+            keyboard: false
         });
     }
 

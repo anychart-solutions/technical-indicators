@@ -66,8 +66,9 @@
     if (location.protocol === 'file:') {
         $loader.hide();
         $('.wrapper').hide();
-        $('#warning').modal('show').on('hidden.bs.modal', function () {
-            $('.img-ok').fadeIn();
+        $('#warning').modal({
+            backdrop: 'static',
+            keyboard: false
         });
     }
 
@@ -81,7 +82,7 @@
             // create option and append to indicator type select
             $option.attr({
                 'value': indicatorName,
-                'data-abbr': $(this).find('abbriveation').text(),
+                'data-abbr': $(this).find('abbreviation').text(),
                 'data-full-text': $(this).find('title').text()
             }).text($(this).find('title').text());
 
