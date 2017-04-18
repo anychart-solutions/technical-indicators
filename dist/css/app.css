@@ -42,6 +42,10 @@ body {
 .modal-backdrop.in {
   opacity: 0; }
 
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: hidden; }
+
 .anychart-loader {
   position: absolute;
   top: 0;
