@@ -62,7 +62,7 @@
 
     var location = window.location;
 
-    // cross origin requests are only supported for protocol schemes
+    // this Sample will properly work only if upload it to a server and access via http or https
     if (location.protocol === 'file:') {
         $loader.hide();
         $('.wrapper').hide();
@@ -72,10 +72,10 @@
         });
     }
 
-    // get overview indicators from overview.xml
+    // get indicators from file indicators.xml
     $.get("indicators.xml", function (data) {
-        $(data).children().children().each(function (index, item) {
-            var indicatorName = $(item).context.tagName;
+        $(data).find('indicator').each(function (index, item) {
+            var indicatorName = $(this).attr('type');
             var description;
             var $option = $('<option></option>');
 
@@ -86,8 +86,8 @@
                 'data-full-text': $(this).find('title').text()
             }).text($(this).find('title').text());
 
-            if ($(this).find('plot_index').length) {
-                $option.attr('data-plot-index', +$(this).find('plot_index').text());
+            if ($(this).find('[name="plotIndex"]').length) {
+                $option.attr('data-plot-index', $(this).find('[name="plotIndex"]').attr('value'));
             }
 
             $indicatorTypeSelect.append($option);
@@ -96,31 +96,23 @@
 
             // set indicator settings to indicator object
             $(item).find('defaults').children().each(function () {
-                var prop = camelCaseToUpperCase($(this)[0].tagName);
-                var value = $(this).text();
+                var prop = $(this).attr('name');
+                var value = $(this).attr('value');
 
-                if (!isNaN(+value)) {
-                    value = Number(value);
-                } else {
-                    try {
+                switch ($(this).attr('type')) {
+                    case 'number':
+                        value = +value;
+                        break;
+                    case 'array':
                         value = JSON.parse(value);
-                    }
-                    catch (err) {
-                    }
+                        break;
                 }
 
                 indicator['defaultSettings'][indicatorName][prop] = value;
             });
 
             // description from xml
-            description = $(item).find('description')[0].outerHTML;
-
-            // replace xml tags to html tags
-            description = description.replace(/<description>/g, '').replace(/<\/description>/g, '');
-            description = description.replace(/<caption>/g, '<b>').replace(/<\/caption>/g, '</b>');
-            description = description.replace(/<text>/g, '<p>').replace(/<\/text>/g, '</p>');
-            description = description.replace(/<list>/g, '<ul>').replace(/<\/list>/g, '</ul>');
-            description = description.replace(/<listItem>/g, '<li>').replace(/<\/listItem>/g, '</li>');
+            description = $(item).find('description').text();
 
             // save indicator overview
             indicator['defaultSettings'][indicatorName]['overview'] = {};
@@ -311,27 +303,14 @@
 
             var plot = chart.plot(indicator.plotIndex);
             plot[indicatorName].apply(plot, settings);
+            // adding extra Y axis to the right side
+            plot.yAxis(1).orientation('right');
             // hide indicator settings modal
             $indicatorSettingsModal.modal('hide');
         });
     });
 
-    function camelCaseToUpperCase(text) {
-        var result = [];
-
-        text.split('_').filter(function (item, index) {
-            if (index == 0) {
-                result.push(item.toLowerCase());
-            } else {
-                result.push(item[0].toUpperCase() + item.substr(1).toLowerCase());
-            }
-        });
-
-        return result.join('');
-    }
-
     function initHeightChart() {
-        // debugger;
         var creditsHeight = 10;
         $('#chart-container').height($(window).height() - $indicatorNavPanel.outerHeight() - creditsHeight);
     }
@@ -381,6 +360,8 @@
                 if (savedSettings['indicators'].hasOwnProperty(keyIndicator)) {
                     indicatorPlot = chart.plot(savedSettings['indicators'][keyIndicator]['plotIndex']);
                     indicatorPlot[indicatorName].apply(indicatorPlot, indicatorSettings);
+                    // adding extra Y axis to the right side
+                    indicatorPlot.yAxis(1).orientation('right');
                 }
             }
 
@@ -411,12 +392,12 @@
         chart.draw();
 
         // create range picker
-        rangePicker = anychart.ui.rangePicker();
+        var rangePicker = anychart.ui.rangePicker();
         // init range picker
         rangePicker.render(chart);
 
         // create range selector
-        rangeSelector = anychart.ui.rangeSelector();
+        var rangeSelector = anychart.ui.rangeSelector();
         // init range selector
         rangeSelector.render(chart);
 
@@ -577,6 +558,7 @@
     }
 
     function setDefaultIndicatorSettings() {
+
         var indicatorSettings = indicator.defaultSettings[indicator.name];
 
         for (key in indicatorSettings) {
