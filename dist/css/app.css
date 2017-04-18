@@ -46,6 +46,9 @@ body {
   overflow-x: hidden;
   overflow-y: hidden; }
 
+.modal.fade.in {
+  padding-left: 0; }
+
 .anychart-loader {
   position: absolute;
   top: 0;
