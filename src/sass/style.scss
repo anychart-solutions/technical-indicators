@@ -4,13 +4,12 @@ body {
   background: #fff;
 }
 
-body, html, .wrapper {
+body, html {
   height: 100%;
 }
 
 #chart-container {
-  height: 100%;
-  min-height: 600px;
+  height: 650px;
 }
 
 #indicatorForm {
