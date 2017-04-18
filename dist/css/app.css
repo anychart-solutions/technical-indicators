@@ -39,6 +39,9 @@ body {
   margin-left: -150px;
   top: 10%; }
 
+.modal-backdrop.in {
+  opacity: 0; }
+
 .anychart-loader {
   position: absolute;
   top: 0;
