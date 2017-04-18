@@ -3,7 +3,7 @@
 ## Technical Indicators
 Need to analyze your data? Our JS charts include dozens of pre-built technical indicators and you can easily create your own.
 
-[<img src="http://static.anychart.com/images/github/technical-indicators.png" alt=Technical Indicators | AnyChart">](http://anychart.com/solutions/big-data-speed-test/)
+[<img src="http://static.anychart.com/images/github/technical-indicators.png" alt="Technical Indicators | AnyChart">](http://anychart.com/solutions/technical-indicators/)
 
 ## Package directory
 ```
