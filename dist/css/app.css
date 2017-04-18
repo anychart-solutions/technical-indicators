@@ -2,11 +2,11 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   background: #fff; }
 
-body, html {
+body, html, .wrapper {
   height: 100%; }
 
 #chart-container {
-  height: 600px;
+  height: 100%;
   min-height: 600px; }
 
 #indicatorForm h5 {

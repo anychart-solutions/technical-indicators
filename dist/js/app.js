@@ -123,8 +123,6 @@
         $indicatorTypeSelect.selectpicker();
     });
 
-    $(window).on('resize', initHeightChart);
-
     anychart.onDocumentReady(function () {
         // To work with the data adapter you need to reference the data adapter script file from AnyChart CDN
         // (http://cdn.anychart.com/js/latest/data-adapter.min.js)
@@ -310,11 +308,6 @@
         });
     });
 
-    function initHeightChart() {
-        var creditsHeight = 10;
-        $('#chart-container').height($(window).height() - $indicatorNavPanel.outerHeight() - creditsHeight);
-    }
-
     function createChart(container, updateChart) {
         var dataName = $chartDataSelect.find('option:selected').text();
         // create data table on loaded data
@@ -402,7 +395,6 @@
         rangeSelector.render(chart);
 
         chart.listen('chartDraw', function () {
-            initHeightChart();
             setTimeout(function(){
                 $loader.hide();
             }, 100);
