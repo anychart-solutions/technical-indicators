@@ -2,9 +2,6 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   background: #fff; }
 
-body, html {
-  height: 100%; }
-
 #chart-container {
   height: 650px; }
 
