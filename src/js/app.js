@@ -178,7 +178,7 @@
                 app.removeChart();
 
                 if ($(this).val() !== null) {
-                    for (keyIndicator in savedSettings.indicators) {
+                    for (var keyIndicator in savedSettings.indicators) {
                         if (!~$(this).val().indexOf(keyIndicator)) {
                             delete savedSettings.indicators[keyIndicator]
                         }
@@ -344,7 +344,7 @@
 
             plot.yScale(savedSettings['scale']);
 
-            for (keyIndicator in savedSettings['indicators']) {
+            for (var keyIndicator in savedSettings['indicators']) {
                 indicatorName = keyIndicator;
 
                 if (savedSettings['indicators'].hasOwnProperty(keyIndicator)) {
@@ -450,7 +450,7 @@
         $indicatorForm.append('<div class="row"></div>');
         var $indicatorFormRow = $indicatorForm.find('.row');
 
-        for (key in indicatorSettings) {
+        for (var key in indicatorSettings) {
             if (indicatorSettings.hasOwnProperty(key) && key !== 'overview' && key !== 'plotIndex') {
 
                 if (typeof indicatorSettings[key] === 'string') {
@@ -561,7 +561,7 @@
 
         var indicatorSettings = indicator.defaultSettings[indicator.name];
 
-        for (key in indicatorSettings) {
+        for (var key in indicatorSettings) {
             if (indicatorSettings.hasOwnProperty(key) && key !== 'overview' && key !== 'plotIndex') {
                 $('#' + key).val(indicatorSettings[key]);
             }
