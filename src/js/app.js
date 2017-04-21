@@ -10,15 +10,15 @@
     var $indicatorForm = $('#indicatorForm');
     var $loader = $('#loader');
 
-    var savedSettings = {};
-    savedSettings['data'] = {};
-    savedSettings['chartType'] = $seriesTypeSelect.val();
-    savedSettings['scale'] = $scaleTypeSelect.val();
-    savedSettings['indicators'] = {};
+    var appSettingsCache = {};
+    appSettingsCache['data'] = {};
+    appSettingsCache['chartType'] = $seriesTypeSelect.val();
+    appSettingsCache['scale'] = $scaleTypeSelect.val();
+    appSettingsCache['indicators'] = {};
 
-    var container = 'chart-container';
+    var chartContainer = 'chart-container';
 
-    var indicator = {
+    var indicatorsSettings = {
         name: '',
         plotIndex: 0,
         defaultSettings: {},
@@ -60,10 +60,8 @@
         removeChart: removeChart
     };
 
-    var location = window.location;
-
     // this Sample will properly work only if upload it to a server and access via http or https
-    if (location.protocol === 'file:') {
+    if (window.location.protocol === 'file:') {
         $loader.hide();
         $('.wrapper').hide();
         $('#warning').modal({
@@ -92,7 +90,7 @@
 
             $indicatorTypeSelect.append($option);
 
-            indicator['defaultSettings'][indicatorName] = {};
+            indicatorsSettings['defaultSettings'][indicatorName] = {};
 
             // set indicator settings to indicator object
             $(item).find('defaults').children().each(function () {
@@ -108,16 +106,16 @@
                         break;
                 }
 
-                indicator['defaultSettings'][indicatorName][prop] = value;
+                indicatorsSettings['defaultSettings'][indicatorName][prop] = value;
             });
 
             // description from xml
             description = $(item).find('description').text();
 
             // save indicator overview
-            indicator['defaultSettings'][indicatorName]['overview'] = {};
-            indicator['defaultSettings'][indicatorName]['overview']['title'] = $(item).find('title').text();
-            indicator['defaultSettings'][indicatorName]['overview']['description'] = description;
+            indicatorsSettings['defaultSettings'][indicatorName]['overview'] = {};
+            indicatorsSettings['defaultSettings'][indicatorName]['overview']['title'] = $(item).find('title').text();
+            indicatorsSettings['defaultSettings'][indicatorName]['overview']['description'] = description;
         });
 
         $indicatorTypeSelect.selectpicker();
@@ -130,26 +128,26 @@
         // (http://cdn.anychart.com/js/latest/data-adapter.min.js)
         // Load JSON data and create a chart by JSON data.
         anychart.data.loadJsonFile($chartDataSelect.val(), function (data) {
-            savedSettings['data']['msft'] = data;
+            appSettingsCache['data']['msft'] = data;
             // init, create chart
-            app.createChart(container);
+            app.createChart(chartContainer);
         });
 
         // event to set data to chart
         $chartDataSelect.on('change', function () {
             var name = $(this).find('option:selected').text().toLowerCase();
 
-            if (!~Object.keys(savedSettings['data']).indexOf(name)) {
+            if (!~Object.keys(appSettingsCache['data']).indexOf(name)) {
                 // To work with the data adapter you need to reference the data adapter script file from AnyChart CDN
                 // (http://cdn.anychart.com/js/latest/data-adapter.min.js)
                 // Load JSON data and create a chart by JSON data.
                 anychart.data.loadJsonFile($(this).val(), function (data) {
-                    savedSettings['data'][name] = data;
+                    appSettingsCache['data'][name] = data;
                     dataTable.addData(data);
                     chart.plot().getSeries(0).name(name.toUpperCase());
                 });
             } else {
-                dataTable.addData(savedSettings['data'][name]);
+                dataTable.addData(appSettingsCache['data'][name]);
                 chart.plot().getSeries(0).name(name.toUpperCase());
             }
         });
@@ -161,7 +159,7 @@
             // set chart type
             chart.plot().getSeries(0).seriesType(type);
             // save chart type
-            savedSettings['chartType'] = type;
+            appSettingsCache['chartType'] = type;
         });
 
         // event to show modal indicator settings
@@ -173,38 +171,38 @@
                 }
             }
 
-            if ($(this).val() === null || $(this).val().length < Object.keys(savedSettings.indicators).length) {
+            if ($(this).val() === null || $(this).val().length < Object.keys(appSettingsCache.indicators).length) {
 
                 app.removeChart();
 
                 if ($(this).val() !== null) {
-                    for (var keyIndicator in savedSettings.indicators) {
+                    for (var keyIndicator in appSettingsCache.indicators) {
                         if (!~$(this).val().indexOf(keyIndicator)) {
-                            delete savedSettings.indicators[keyIndicator]
+                            delete appSettingsCache.indicators[keyIndicator]
                         }
                     }
                 } else {
-                    savedSettings.indicators = {};
+                    appSettingsCache.indicators = {};
                 }
 
-                app.createChart(container, true);
+                app.createChart(chartContainer, true);
 
                 return
             }
 
             for (var i = 0; i < $(this).val().length; i++) {
-                if (!~Object.keys(savedSettings.indicators).indexOf($(this).val()[i])) {
+                if (!~Object.keys(appSettingsCache.indicators).indexOf($(this).val()[i])) {
                     // set indicator name
-                    indicator.name = $(this).val()[i];
+                    indicatorsSettings.name = $(this).val()[i];
                     break;
                 }
             }
 
             // set plot index
-            indicator.plotIndex = $(this).find('option[value="' + indicator.name + '"]').data().plotIndex;
+            indicatorsSettings.plotIndex = $(this).find('option[value="' + indicatorsSettings.name + '"]').data().plotIndex;
 
-            if (indicator.plotIndex !== 0) {
-                indicator.plotIndex = chart.getPlotsCount();
+            if (indicatorsSettings.plotIndex !== 0) {
+                indicatorsSettings.plotIndex = chart.getPlotsCount();
             }
 
             // create html if form (input/select)
@@ -222,8 +220,8 @@
         $scaleTypeSelect.on('change', function () {
             app.removeChart();
             // save scale type
-            savedSettings['scale'] = $(this).val();
-            app.createChart(container, true);
+            appSettingsCache['scale'] = $(this).val();
+            app.createChart(chartContainer, true);
         });
 
         // remove selected class, if indicator not selected
@@ -231,7 +229,7 @@
             var lastAddedIndicator;
 
             for (var i = 0; i < $indicatorTypeSelect.val().length; i++) {
-                if (!~Object.keys(savedSettings.indicators).indexOf($indicatorTypeSelect.val()[i])) {
+                if (!~Object.keys(appSettingsCache.indicators).indexOf($indicatorTypeSelect.val()[i])) {
                     // set indicator name
                     lastAddedIndicator = $indicatorTypeSelect.val()[i];
                     break;
@@ -265,9 +263,9 @@
 
             app.removeChart();
             // reset saved settings
-            savedSettings['indicators'] = {};
-            savedSettings['scale'] = 'linear';
-            savedSettings['chartType'] = 'line';
+            appSettingsCache['indicators'] = {};
+            appSettingsCache['scale'] = 'linear';
+            appSettingsCache['chartType'] = 'line';
 
             $chartDataSelect.val('data/msft.json').selectpicker('refresh');
             $seriesTypeSelect.val('line').selectpicker('refresh');
@@ -275,15 +273,15 @@
             $scaleTypeSelect.val('linear').selectpicker('refresh');
 
             // init, create chart
-            app.createChart(container);
+            app.createChart(chartContainer);
         });
 
         // event to add indicator
         $addIndicatorBtn.on('click', function () {
             var mapping = dataTable.mapAs({'value': 1, 'open': 1, 'high': 2, 'low': 3, 'close': 4});
-            var keys = Object.keys(indicator.defaultSettings[indicator.name]);
+            var keys = Object.keys(indicatorsSettings.defaultSettings[indicatorsSettings.name]);
             var settings = [mapping];
-            var indicatorName = indicator.name;
+            var indicatorName = indicatorsSettings.name;
 
             // for slow/fast stochastic
             if (~indicatorName.toLowerCase().indexOf('stochastic')) {
@@ -297,11 +295,11 @@
             }
 
             // save settings for indicator
-            savedSettings['indicators'][indicator.name] = {};
-            savedSettings['indicators'][indicator.name]['settings'] = settings;
-            savedSettings['indicators'][indicator.name]['plotIndex'] = indicator.plotIndex;
+            appSettingsCache['indicators'][indicatorsSettings.name] = {};
+            appSettingsCache['indicators'][indicatorsSettings.name]['settings'] = settings;
+            appSettingsCache['indicators'][indicatorsSettings.name]['plotIndex'] = indicatorsSettings.plotIndex;
 
-            var plot = chart.plot(indicator.plotIndex);
+            var plot = chart.plot(indicatorsSettings.plotIndex);
             plot[indicatorName].apply(plot, settings);
             // adding extra Y axis to the right side
             plot.yAxis(1).orientation('right');
@@ -320,7 +318,7 @@
         // create data table on loaded data
         dataTable = anychart.data.table();
 
-        var lineSeries;
+        var series;
 
         // map loaded data
         var mapping = dataTable.mapAs({'value': 1, 'open': 1, 'high': 2, 'low': 3, 'close': 4});
@@ -331,7 +329,7 @@
         // create plot on the chart
         var plot = chart.plot(0);
 
-        dataTable.addData(savedSettings['data'][dataName.toLowerCase()]);
+        dataTable.addData(appSettingsCache['data'][dataName.toLowerCase()]);
 
         if (updateChart) {
             var indicatorName;
@@ -339,16 +337,16 @@
             var indicatorSettings = [];
 
             // create line series
-            lineSeries = plot[savedSettings['chartType']](mapping);
-            lineSeries.name(dataName.toUpperCase());
+            series = plot[appSettingsCache['chartType']](mapping);
+            series.name(dataName.toUpperCase());
 
-            plot.yScale(savedSettings['scale']);
+            plot.yScale(appSettingsCache['scale']);
 
-            for (var keyIndicator in savedSettings['indicators']) {
+            for (var keyIndicator in appSettingsCache['indicators']) {
                 indicatorName = keyIndicator;
 
-                if (savedSettings['indicators'].hasOwnProperty(keyIndicator)) {
-                    indicatorSettings = savedSettings['indicators'][keyIndicator]['settings'];
+                if (appSettingsCache['indicators'].hasOwnProperty(keyIndicator)) {
+                    indicatorSettings = appSettingsCache['indicators'][keyIndicator]['settings'];
                     indicatorSettings[0] = mapping;
                 }
 
@@ -357,8 +355,8 @@
                     indicatorName = 'stochastic';
                 }
 
-                if (savedSettings['indicators'].hasOwnProperty(keyIndicator)) {
-                    indicatorPlot = chart.plot(savedSettings['indicators'][keyIndicator]['plotIndex']);
+                if (appSettingsCache['indicators'].hasOwnProperty(keyIndicator)) {
+                    indicatorPlot = chart.plot(appSettingsCache['indicators'][keyIndicator]['plotIndex']);
                     indicatorPlot[indicatorName].apply(indicatorPlot, indicatorSettings);
                     // adding extra Y axis to the right side
                     indicatorPlot.yAxis(1).orientation('right');
@@ -367,11 +365,11 @@
 
         } else {
             // create line series
-            lineSeries = plot.line(mapping);
-            lineSeries.name(dataName.toUpperCase());
+            series = plot.line(mapping);
+            series.name(dataName.toUpperCase());
         }
 
-        lineSeries.stroke('2px #64b5f6');
+        series.stroke('2px #64b5f6');
 
         // adding extra Y axis to the right side
         var yAxis = plot.yAxis(1);
@@ -438,11 +436,11 @@
     function createHtmlToIndicatorForm() {
         var $indicatorFormGroup;
         var isSmoothingType;
-        var indicatorSettings = indicator.defaultSettings[indicator.name];
+        var indicatorSettings = indicatorsSettings.defaultSettings[indicatorsSettings.name];
         var $option;
         var i = 0;
 
-        $('#indicatorSettingsModalTitle').text(indicator.defaultSettings[indicator.name].overview.title);
+        $('#indicatorSettingsModalTitle').text(indicatorsSettings.defaultSettings[indicatorsSettings.name].overview.title);
 
         // empty form
         $indicatorForm.empty();
@@ -457,7 +455,7 @@
                     $indicatorFormRow.append(selectHtml);
                     $indicatorFormGroup = $('#indicatorFormGroup');
                     $indicatorFormGroup.find('select').attr('id', key);
-                    $indicatorFormGroup.find('label').attr('for', key).text(getText(key));
+                    $indicatorFormGroup.find('label').attr('for', key).text(getInputLabelText(key));
 
                     isSmoothingType = false;
 
@@ -478,10 +476,10 @@
                             $indicatorFormGroup.find('select').append($option);
                         }
                     } else {
-                        for (i = 0; i < indicator.seriesType.length; i++) {
+                        for (i = 0; i < indicatorsSettings.seriesType.length; i++) {
                             $option = $('<option></option>');
-                            $option.val(indicator.seriesType[i].toLowerCase());
-                            $option.text(getText(indicator.seriesType[i]));
+                            $option.val(indicatorsSettings.seriesType[i].toLowerCase());
+                            $option.text(getInputLabelText(indicatorsSettings.seriesType[i]));
                             $indicatorFormGroup.find('select').append($option);
                         }
                     }
@@ -493,7 +491,7 @@
                     $indicatorFormGroup = $('#indicatorFormGroup');
                     $indicatorFormGroup.find('input').attr('id', key);
 
-                    $indicatorFormGroup.removeAttr('id').find('label').attr('for', key).text(getText(key));
+                    $indicatorFormGroup.removeAttr('id').find('label').attr('for', key).text(getInputLabelText(key));
                 }
             }
         }
@@ -502,7 +500,7 @@
         setColClass();
         // indicator overview text
         $indicatorForm.find($("[class*='col-sm-']")).last().after('<div class="col-xs-12" id="overviewText"></div>');
-        $indicatorForm.find('#overviewText').append(indicator.defaultSettings[indicator.name].overview.description);
+        $indicatorForm.find('#overviewText').append(indicatorsSettings.defaultSettings[indicatorsSettings.name].overview.description);
     }
 
     function setColClass() {
@@ -527,16 +525,19 @@
 
         while (index) {
             --index;
-            $indicatorForm.find($("[class*='col-sm-']")).eq(lastIndex - index).removeClass('col-sm-4').addClass('col-sm-' + colClass);
+            $indicatorForm.find($("[class*='col-sm-']"))
+                .eq(lastIndex - index)
+                .removeClass('col-sm-4')
+                .addClass('col-sm-' + colClass);
         }
     }
 
-    function getText(keyText) {
+    function getInputLabelText(keyText) {
         var text = '';
         var result = [];
 
         keyText.split(/(?=[A-Z])/).filter(function (item) {
-            if (item.length == 1) {
+            if (item.length === 1) {
                 text += item;
             } else {
                 text += ' ';
@@ -547,7 +548,7 @@
         text = text[0].toUpperCase() + text.substr(1);
 
         text.split(' ').filter(function (item, index) {
-            if (item.length == 1 && index !== text.split(' ').length - 1) {
+            if (item.length === 1 && index !== text.split(' ').length - 1) {
                 result.push(item + '-');
             } else {
                 result.push(item);
@@ -559,7 +560,7 @@
 
     function setDefaultIndicatorSettings() {
 
-        var indicatorSettings = indicator.defaultSettings[indicator.name];
+        var indicatorSettings = indicatorsSettings.defaultSettings[indicatorsSettings.name];
 
         for (var key in indicatorSettings) {
             if (indicatorSettings.hasOwnProperty(key) && key !== 'overview' && key !== 'plotIndex') {
