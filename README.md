@@ -1,53 +1,53 @@
-[<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](http://www.anychart.com)
+[<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - JavaScript Charts designed to be embedded and integrated">](https://www.anychart.com)
 
 ## Technical Indicators
-Need to analyze your data? Our JS charts include dozens of pre-built technical indicators and you can easily create your own.
+Need to analyze your data? Our JS charts include dozens of pre-built technical indicators
+and you can easily create your own.
 
-[<img src="http://static.anychart.com/images/github/technical-indicators.png" alt="Technical Indicators | AnyChart">](http://anychart.com/solutions/technical-indicators/)
+[<img src="https://static.anychart.com/images/github/technical-indicators.png" alt="Technical Indicators | AnyChart">](https://anychart.com/solutions/technical-indicators/)
 
-## Package directory
+## Running locally
+There is two possible option to run Technical Indicators demo locally.
+[Using Node.js and npm](#using-node.js-and-npm) option is recommend because it runs all development environment with single command:
+* Runs Node.js server with the demo on `http://localhost:3000/`.
+* Watches for changes in source files and rebuilds distribution files on the fly.
+* Dynamically reload web page using [browser-sync](https://www.browsersync.io/) tool.
+If you for some reasons don't want to install any additional requirements like Node.js and npm, you can use [no additional requirements](#with-no-additional-requirements) option.
+
+### Using Node.js and npm
+First, please ensure you have all [requirements](#installing-requirements) installed.
+To run demo, use following commands.
 ```
-├── dist
-│   ├── css
-│        ├── app.css
-│        ├── app.min.css
-│   ├── js
-│        ├── app.js
-│        ├── app.min.js
-├── src
-│   ├── js
-│        ├── app.js
-│   ├── sass
-│        ├── app.scss
-│         ...
-│   indicators.xml
-│   gulpfile.js
-│   package.json
-│   LICENSE
-│   README.md
-│   index.html
-│   ...
+git clone git@github.com:anychart-solutions/technical-indicators.git
+cd technical-indicators
+gulp
 ```
+If you need to modify demo source code, please:
+* To modify demo stylesheets, edit `src/sass/*.scss` files.
+* To modify demo JavaScript, edit `src/js/app.js` file.
+* To modify demo markup, edit `src/index.html` file.
+* To modify list of available indicators and default settings, edit `src/indicators.xml` file.
+* To modify data sources, edit `chartDataSelect` select options.
 
-- **dist/** -
-Output directory that contains compiled `js` and `css` files.
+### With no additional requirements
+This option doesn't require Node.js and npm installation, but you have to run web-server anyway.
+Also it imposes some limitations on demo source code modification process.
+* To run demo, please, open index.html page with your web-server.
+* To modify demo stylesheets, please add your own `<styles>` section to `src/index.html` file.
+* Unfortunately, here is no way to modify demo JavaScript code except adding your own `<script>` section to `src/index.html` file.
+* To modify demo markup, edit `src/index.html` file.
+* To modify list of available indicators and default settings, edit `src/indicators.xml` file.
+* To modify data sources, edit `chartDataSelect` select options.
 
-- **src/** -
-Source code directory.
+## Running on production
+All production files are located in [distribution](https://github.com/anychart-solutions/technical-indicators/tree/master/dist) directory.
+In case you did some modification of the source code, you need to rebuild production files as mentioned in [Using Node.js and npm](#using-node.js-and-npm) section.
 
-- **indicators.xml** -
-All settings for indicators contains in this file.
-If you want to add a new indicator, that allows you to build the AnyChart library, describe it in this file, similar to the other ones.
-
-- **gulpfile.js** -
-Contains automating tasks to development workflow.
-
-- **package.json** -
-Package manager configuration file.
-
-## Build
-1) Run `npm install` command to load all required npm modules.
-2) Run `gulp` to start demo. Gulp watch scss, js and html files and update dist files if anything change.
+## Installing requirements
+To run demo development environment, please, ensure you have install [Git](https://git-scm.com/), [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/) and [gulp](http://gulpjs.com/), overwise:
+* To install Node.js and npm, visit [installation instructions](https://docs.npmjs.com/getting-started/installing-node) page.
+* To install gulp globally using `npm install gulp -g` command.
+* To install git, visit [installation instructions|https://git-scm.com/book/en/v1/Getting-Started-Installing-Git] page.
 
 ## Links
 * [Technical Indicators Demo at AnyChart.Com](https://www.anychart.com/solutions/technical-indicators/)
@@ -57,4 +57,4 @@ Package manager configuration file.
 * [Technical Support](https://anychart.com/support)
 
 ## License
-[© AnyChart.com - JavaScript charts](http://www.anychart.com). Released under the [Apache 2.0 License](https://github.com/anychart-solutions/technical-indicators/blob/master/LICENSE).
+[© AnyChart.com - JavaScript charts](https://www.anychart.com). Released under the [Apache 2.0 License](https://github.com/anychart-solutions/technical-indicators/blob/master/LICENSE).
