@@ -1,28 +1,31 @@
 [<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - JavaScript Charts designed to be embedded and integrated">](https://www.anychart.com)
 
-## Technical Indicators
+# Technical Indicators
 Need to analyze your data? Our JS charts include dozens of pre-built technical indicators
 and you can easily create your own.
 
 [<img src="https://static.anychart.com/images/github/technical-indicators.png" alt="Technical Indicators | AnyChart">](https://anychart.com/solutions/technical-indicators/)
 
-## Running locally
-There is two possible option to run Technical Indicators demo locally.
-[Using Node.js and npm](#using-node.js-and-npm) option is recommend because it runs all development environment with single command:
+## Modifying source code
+There is two possible options of modifying demo source code, [using Node.js and npm](#using-node.js-and-npm)
+and [with no additional requirements](#with-no-additional-requirements).
+[using Node.js and npm](#using-node.js-and-npm)
+
+### Using Node.js and npm
+This option is recommend because it runs all development environment you need:
 * Runs Node.js server with the demo on `http://localhost:3000/`.
 * Watches for changes in source files and rebuilds distribution files on the fly.
 * Dynamically reload web page using [browser-sync](https://www.browsersync.io/) tool.
-If you for some reasons don't want to install any additional requirements like Node.js and npm, you can use [no additional requirements](#with-no-additional-requirements) option.
 
-### Using Node.js and npm
-First, please ensure you have all [requirements](#installing-requirements) installed.
-To run demo, use following commands.
+Please, ensure you have all [requirements](#installing-requirements) installed before running.
+To run demo with Nodej.js and npm, use following commands:
 ```
 git clone git@github.com:anychart-solutions/technical-indicators.git
 cd technical-indicators
 gulp
 ```
-If you need to modify demo source code, please:
+
+Now, then all environment is up and running, you may use following instructions to modify source code:
 * To modify demo stylesheets, edit `src/sass/*.scss` files.
 * To modify demo JavaScript, edit `src/js/app.js` file.
 * To modify demo markup, edit `src/index.html` file.
@@ -38,10 +41,11 @@ Also it imposes some limitations on demo source code modification process.
 * To modify demo markup, edit `src/index.html` file.
 * To modify list of available indicators and default settings, edit `src/indicators.xml` file.
 * To modify data sources, edit `chartDataSelect` select options.
+* To make a production build you need to copy all required files to distribution folder by your own.
 
 ## Running on production
-All production files are located in [distribution](https://github.com/anychart-solutions/technical-indicators/tree/master/dist) directory.
-In case you did some modification of the source code, you need to rebuild production files as mentioned in [Using Node.js and npm](#using-node.js-and-npm) section.
+All production files are located in [distribution](https://github.com/anychart-solutions/technical-indicators/tree/master/dist) folder.
+In case you did some modification of the source code, you need to rebuild production files as mentioned in [Using Node.js and npm](#using-node.js-and-npm) section or manually.
 
 ## Installing requirements
 To run demo development environment, please, ensure you have install [Git](https://git-scm.com/), [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/) and [gulp](http://gulpjs.com/), overwise:
