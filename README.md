@@ -9,7 +9,6 @@ and you can easily create your own.
 ## Modifying source code
 There is two possible options of modifying demo source code, [using Node.js and npm](#using-node.js-and-npm)
 and [with no additional requirements](#with-no-additional-requirements).
-[using Node.js and npm](#using-node.js-and-npm)
 
 ### Using Node.js and npm
 This option is recommend because it runs all development environment you need:
@@ -17,20 +16,20 @@ This option is recommend because it runs all development environment you need:
 * Watches for changes in source files and rebuilds distribution files on the fly.
 * Dynamically reload web page using [browser-sync](https://www.browsersync.io/) tool.
 
-Please, ensure you have all [requirements](#installing-requirements) installed before running.
-To run demo with Nodej.js and npm, use following commands:
+Please, ensure you have all [requirements](#installing-requirements) installed before running.  
+Then, to run demo with Nodej.js and npm, use following commands:
 ```
 git clone git@github.com:anychart-solutions/technical-indicators.git
 cd technical-indicators
 gulp
 ```
 
-Now, then all environment is up and running, you may use following instructions to modify source code:
+Now, when all environment is up and running, you may use following instructions to modify source code:
 * To modify demo stylesheets, edit `src/sass/*.scss` files.
 * To modify demo JavaScript, edit `src/js/app.js` file.
 * To modify demo markup, edit `src/index.html` file.
-* To modify list of available indicators and default settings, edit `src/indicators.xml` file.
-* To modify data sources, edit `chartDataSelect` select options.
+* To modify available indicators and default settings, edit `src/indicators.xml` file.
+* To modify available data sources, edit `chartDataSelect` select options.
 
 ### With no additional requirements
 This option doesn't require Node.js and npm installation, but you have to run web-server anyway.
@@ -48,7 +47,7 @@ All production files are located in [distribution](https://github.com/anychart-s
 In case you did some modification of the source code, you need to rebuild production files as mentioned in [Using Node.js and npm](#using-node.js-and-npm) section or manually.
 
 ## Installing requirements
-To run demo development environment, please, ensure you have install [Git](https://git-scm.com/), [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/) and [gulp](http://gulpjs.com/), overwise:
+To run demo development environment, please, ensure you have installed [Git](https://git-scm.com/), [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/) and [gulp](http://gulpjs.com/), overwise:
 * To install Node.js and npm, visit [installation instructions](https://docs.npmjs.com/getting-started/installing-node) page.
 * To install gulp globally using `npm install gulp -g` command.
 * To install git, visit [installation instructions|https://git-scm.com/book/en/v1/Getting-Started-Installing-Git] page.
