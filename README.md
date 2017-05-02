@@ -26,7 +26,7 @@ gulp
 
 Now, when all environment is up and running, you may use following instructions to modify source code:
 * To modify demo stylesheets, edit `src/sass/*.scss` files.
-* To modify demo JavaScript, edit `src/js/app.js` file.
+* To modify demo JavaScript, edit `src/js/index.js` file.
 * To modify demo markup, edit `src/index.html` file.
 * To modify available indicators and default settings, edit `src/indicators.xml` file.
 * To modify available data sources, edit `chartDataSelect` select options.
