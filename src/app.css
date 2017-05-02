@@ -31,7 +31,7 @@ body {
     padding-right: 25px; }
     #indicatorNavPanel.list-nav > li {
       display: inline-block;
-      margin-right: 5px; }
+      margin-right: 3px; }
 
 .modal-backdrop.in {
   opacity: 0; }
