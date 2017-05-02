@@ -37,16 +37,6 @@ body, html {
       display: inline-block;
       margin-right: 5px; }
 
-.img-ok {
-  display: none;
-  width: 100%;
-  max-width: 350px;
-  margin: 0 auto;
-  position: absolute;
-  left: 50%;
-  margin-left: -150px;
-  top: 10%; }
-
 .anychart-loader {
   position: absolute;
   top: 0;
