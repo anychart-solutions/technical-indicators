@@ -22,7 +22,9 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 
     <!-- css -->
-    <link rel="stylesheet" href="dist/css/app.min.css">
+    <link rel="stylesheet" href="app.css">
+
+    <!-- Include all your css files or styles here as needed -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -86,20 +88,20 @@
     <ul class="list list-unstyled list-nav" id="indicatorNavPanel">
         <li>
             <select name="" id="chartDataSelect" class="select selectpicker show-tick" title="Select Data Chart">
-                <option value="data/msft.json" selected>MSFT</option>
-                <option value="data/orcl.json">ORCL</option>
-                <option value="data/csco.json">CSCO</option>
-                <option value="data/ibm.json">IBM</option>
+                <option value="1" selected data-json="./data/msft.json">MSFT</option>
+                <option value="2" data-json="./data/orcl.json">ORCL</option>
+                <option value="3" data-json="./data/csco.json">CSCO</option>
+                <option value="4" data-json="./data/ibm.json">IBM</option>
             </select>
         </li>
 
         <li>
             <select name="" id="seriesTypeSelect" class="select selectpicker show-tick">
                 <option value="area">Area Chart</option>
-                <option value="candlestick">Candlestick Chart</option>
+                <option value="candlestick" selected>Candlestick Chart</option>
                 <option value="column">Column Chart</option>
                 <option value="jumpLine">Jump Line Chart</option>
-                <option value="line" selected>Line Chart</option>
+                <option value="line">Line Chart</option>
                 <option value="marker">Marker Chart</option>
                 <option value="ohlc">OHLC Chart</option>
                 <option value="rangeArea">Range Area Chart</option>
@@ -144,6 +146,6 @@
 <!-- Data adapter -->
 <script src="http://cdn.anychart.com/js/latest/data-adapter.min.js"></script>
 
-<script src="dist/js/app.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

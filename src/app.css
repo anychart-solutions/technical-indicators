@@ -26,12 +26,16 @@ body, html {
   margin: 0;
   /* <-- Apparently some margin are still there even though it's hidden */ }
 
-#indicatorNavPanel.list-nav {
-  padding-top: 20px;
-  padding-left: 25px;
-  padding-right: 25px; }
-  #indicatorNavPanel.list-nav > li {
-    display: inline-block; }
+#indicatorNavPanel {
+  font-size: 0;
+  display: table; }
+  #indicatorNavPanel.list-nav {
+    padding-top: 20px;
+    padding-left: 25px;
+    padding-right: 25px; }
+    #indicatorNavPanel.list-nav > li {
+      display: inline-block;
+      margin-right: 5px; }
 
 .img-ok {
   display: none;

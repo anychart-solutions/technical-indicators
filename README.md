@@ -4,7 +4,7 @@
 Need to analyze your data? Our JS charts include dozens of pre-built technical indicators
 and you can easily create your own.
 
-[<img src="https://static.anychart.com/images/github/technical-indicators.png" alt="Technical Indicators | AnyChart">](https://anychart.com/solutions/technical-indicators/)
+[<img src="https://static.anychart.com/images/github/technical-indicators.jpg?ver1.0" alt="Technical Indicators | AnyChart">](https://anychart.com/solutions/technical-indicators/)
 
 ## Modifying source code
 There is two possible options of modifying demo source code, [using Node.js and npm](#using-node.js-and-npm)

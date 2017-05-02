@@ -127,8 +127,8 @@
         // To work with the data adapter you need to reference the data adapter script file from AnyChart CDN
         // (http://cdn.anychart.com/js/latest/data-adapter.min.js)
         // Load JSON data and create a chart by JSON data.
-        anychart.data.loadJsonFile($chartDataSelect.val(), function (data) {
-            appSettingsCache['data']['msft'] = data;
+        anychart.data.loadJsonFile($chartDataSelect.find('option:selected').data().json, function (data) {
+            appSettingsCache['data'][$chartDataSelect.find('option:selected').text().toLowerCase()] = data;
             // init, create chart
             app.createChart(chartContainer);
         });
@@ -141,7 +141,7 @@
                 // To work with the data adapter you need to reference the data adapter script file from AnyChart CDN
                 // (http://cdn.anychart.com/js/latest/data-adapter.min.js)
                 // Load JSON data and create a chart by JSON data.
-                anychart.data.loadJsonFile($(this).val(), function (data) {
+                anychart.data.loadJsonFile($(this).find('option:selected').data().json, function (data) {
                     appSettingsCache['data'][name] = data;
                     dataTable.addData(data);
                     chart.plot().getSeries(0).name(name.toUpperCase());
@@ -167,7 +167,7 @@
 
             if ($(this).val()) {
                 if ($(this).val().length === 1) {
-                    updateTextForIndicatorTypeSelect();
+                    updateTextForIndicatorTypeSelect($indicatorTypeSelect);
                 }
             }
 
@@ -238,7 +238,7 @@
 
             if (!lastAddedIndicator) {
                 // update select text/title
-                updateTextForIndicatorTypeSelect();
+                updateTextForIndicatorTypeSelect($indicatorTypeSelect);
                 return false
             }
 
@@ -249,7 +249,7 @@
             // remove selected class
             $indicatorTypeSelect.prev('.dropdown-menu').find('li[data-original-index="' + indexOption + '"]').removeClass('selected');
             // update select text/title
-            updateTextForIndicatorTypeSelect();
+            updateTextForIndicatorTypeSelect($indicatorTypeSelect);
         });
 
         // init selectpicker to all select in indicator settings modal
@@ -267,9 +267,13 @@
             appSettingsCache['scale'] = 'linear';
             appSettingsCache['chartType'] = 'line';
 
-            $chartDataSelect.val('data/msft.json').selectpicker('refresh');
-            $seriesTypeSelect.val('line').selectpicker('refresh');
+            // select msft data
+            $chartDataSelect.val(1).selectpicker('refresh');
+            // select series type
+            $seriesTypeSelect.val('candlestick').selectpicker('refresh');
+            // reset indicators select
             $indicatorTypeSelect.val('').selectpicker('refresh');
+            // select chart scale
             $scaleTypeSelect.val('linear').selectpicker('refresh');
 
             // init, create chart
@@ -315,6 +319,8 @@
 
     function createChart(container, updateChart) {
         var dataName = $chartDataSelect.find('option:selected').text();
+        var seriesType = $seriesTypeSelect.val();
+
         // create data table on loaded data
         dataTable = anychart.data.table();
 
@@ -365,7 +371,7 @@
 
         } else {
             // create line series
-            series = plot.line(mapping);
+            series = plot[seriesType](mapping);
             series.name(dataName.toUpperCase());
         }
 
@@ -412,24 +418,6 @@
         if (chart) {
             chart.dispose();
             chart = null;
-        }
-    }
-
-    function updateTextForIndicatorTypeSelect() {
-        if ($indicatorTypeSelect.val()) {
-            if ($indicatorTypeSelect.val().length > 1) {
-                $indicatorTypeSelect.find('option:selected').each(function () {
-                    $(this).text($(this).attr('data-abbr'))
-                });
-            } else {
-                $indicatorTypeSelect.find('option:selected').each(function () {
-                    $(this).text($(this).attr('data-full-text'))
-                });
-            }
-
-            $indicatorTypeSelect.selectpicker('refresh').closest('.bootstrap-select').find('.dropdown-menu.inner').find('span.text').each(function (index) {
-                $(this).text($indicatorTypeSelect.find('option').eq(index).attr('data-full-text'));
-            });
         }
     }
 
@@ -497,65 +485,10 @@
         }
 
         // col class to form el
-        setColClass();
+        setColClass($indicatorForm);
         // indicator overview text
         $indicatorForm.find($("[class*='col-sm-']")).last().after('<div class="col-xs-12" id="overviewText"></div>');
         $indicatorForm.find('#overviewText').append(indicatorsSettings.defaultSettings[indicatorsSettings.name].overview.description);
-    }
-
-    function setColClass() {
-        // column count for row
-        var ROW_COUNT = 12;
-        var COLUMN_COUNT = 3;
-        var index = $indicatorForm.find('.col-sm-4').length;
-        var lastIndex = $indicatorForm.find('.col-sm-4').last().index();
-        var colClass;
-
-        if (index === COLUMN_COUNT) {
-            return
-        }
-
-        if (index > COLUMN_COUNT) {
-            while (index > COLUMN_COUNT) {
-                index -= COLUMN_COUNT;
-            }
-        }
-
-        colClass = ROW_COUNT / index;
-
-        while (index) {
-            --index;
-            $indicatorForm.find($("[class*='col-sm-']"))
-                .eq(lastIndex - index)
-                .removeClass('col-sm-4')
-                .addClass('col-sm-' + colClass);
-        }
-    }
-
-    function getInputLabelText(keyText) {
-        var text = '';
-        var result = [];
-
-        keyText.split(/(?=[A-Z])/).filter(function (item) {
-            if (item.length === 1) {
-                text += item;
-            } else {
-                text += ' ';
-                text += item;
-            }
-        });
-        text = text.trim();
-        text = text[0].toUpperCase() + text.substr(1);
-
-        text.split(' ').filter(function (item, index) {
-            if (item.length === 1 && index !== text.split(' ').length - 1) {
-                result.push(item + '-');
-            } else {
-                result.push(item);
-            }
-        });
-
-        return result.join(' ').replace(/-\s/, '-');
     }
 
     function setDefaultIndicatorSettings() {
