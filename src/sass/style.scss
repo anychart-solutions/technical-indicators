@@ -4,13 +4,8 @@ body {
   background: #fff;
 }
 
-body, html {
-  height: 100%;
-}
-
 #chart-container {
-  height: 600px;
-  min-height: 600px;
+  height: 650px;
 }
 
 #indicatorForm {
@@ -50,16 +45,17 @@ body, html {
   }
 }
 
-.img-ok {
-  display: none;
-  width: 100%;
-  max-width: 350px;
-  margin: 0 auto;
-  position: absolute;
-  left: 50%;
-  margin-left: -150px;
-  top: 10%;
+.modal-backdrop.in {
+  opacity: 0;
 }
 
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.modal.fade.in {
+  padding-left: 0;
+}
 
 
