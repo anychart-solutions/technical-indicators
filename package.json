@@ -1,4 +1,35 @@
 {
+  "name": "AnyStock - Technical Indicators Demo",
+  "description": "Need to analyze your data? Our JS charts include dozens of pre-built technical indicators and you can easily create your own.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anychart-solutions/technical-indicators.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anychart-solutions/technical-indicators/issues"
+  },
+  "author": "AnyChart <contact@anychart.com> (https://www.anychart.com)",
+  "license": "Apache-2.0",
+  "keywords": [
+    "anychart",
+    "anystock",
+    "anygantt",
+    "anymap",
+    "charts",
+    "javascript charts",
+    "ajax charts",
+    "plots",
+    "line charts",
+    "bar charts",
+    "pie charts",
+    "javascript plots",
+    "ajax plots",
+    "javascript",
+    "SVG",
+    "HTML5",
+    "framework",
+    "VML"
+  ],
   "devDependencies": {
     "browser-sync": "^2.14.0",
     "gulp": "^3.9.1",
