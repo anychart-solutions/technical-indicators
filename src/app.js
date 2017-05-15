@@ -190,6 +190,13 @@ function updateTextForIndicatorTypeSelect($select) {
             indicatorsSettings['defaultSettings'][indicatorName]['overview']['description'] = description;
         });
 
+        // sort option in select
+        var options = $indicatorTypeSelect.find('option').sort(function (a, b) {
+            return a.value.toUpperCase().localeCompare(b.value.toUpperCase())
+        });
+        $indicatorTypeSelect.append(options);
+
+        // init selectpicker
         $indicatorTypeSelect.selectpicker();
     });
 
@@ -366,7 +373,7 @@ function updateTextForIndicatorTypeSelect($select) {
             }
 
             for (key in indicator) {
-                if (key !== 'smoothingType' && key !== 'overview' && key !== 'plotIndex') {
+                if (key !== 'overview' && key !== 'plotIndex') {
                     var val = $('#' + key).val();
                     val = val == 'true' || val == 'false' ? val == 'true' : val;
                     settings.push(val);
@@ -534,6 +541,7 @@ function updateTextForIndicatorTypeSelect($select) {
                     $indicatorFormGroup.find('input').attr('id', key);
 
                     $indicatorFormGroup.removeAttr('id').find('label').attr('for', key).text(getInputLabelText(key));
+                    
                 } else if (typeof indicatorSettings[key] === 'object') {
                     $indicatorFormRow.append(selectHtml);
                     $indicatorFormGroup = $('#indicatorFormGroup');
