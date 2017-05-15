@@ -118,7 +118,7 @@
             indicatorsSettings['defaultSettings'][indicatorName]['overview']['description'] = description;
         });
 
-        // sort option in select
+        // sort option in select 
         var options = $indicatorTypeSelect.find('option').sort(function (a, b) {
             return a.value.toUpperCase().localeCompare(b.value.toUpperCase())
         });
