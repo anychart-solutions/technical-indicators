@@ -117,7 +117,13 @@
             indicatorsSettings['defaultSettings'][indicatorName]['overview']['title'] = $(item).find('title').text();
             indicatorsSettings['defaultSettings'][indicatorName]['overview']['description'] = description;
         });
-
+        
+        // sort option in select
+        var options = $indicatorTypeSelect.find('option').sort(function (a, b) {
+            return a.value.toUpperCase().localeCompare(b.value.toUpperCase())
+        });
+        $indicatorTypeSelect.append(options);
+        
         $indicatorTypeSelect.selectpicker();
     });
 
@@ -280,8 +286,9 @@
 
         // event to add indicator
         $addIndicatorBtn.on('click', function () {
-            var mapping = dataTable.mapAs({'value': 1, 'open': 1, 'high': 2, 'low': 3, 'close': 4});
-            var keys = Object.keys(indicatorsSettings.defaultSettings[indicatorsSettings.name]);
+            var mapping = dataTable.mapAs({'value': 1, 'volume': 1, 'open': 1, 'high': 2, 'low': 3, 'close': 4});
+            // var keys = Object.keys(indicatorsSettings.defaultSettings[indicatorsSettings.name]);
+            var indicator = indicatorsSettings.defaultSettings[indicatorsSettings.name];
             var settings = [mapping];
             var indicatorName = indicatorsSettings.name;
 
@@ -290,9 +297,11 @@
                 indicatorName = 'stochastic';
             }
 
-            for (var i = 0; i < keys.length; i++) {
-                if (keys[i] !== 'smoothingType') {
-                    settings.push($('#' + keys[i]).val());
+            for (key in indicator) {
+                if (key !== 'overview' && key !== 'plotIndex') {
+                    var val = $('#' + key).val();
+                    val = val == 'true' || val == 'false' ? val == 'true' : val;
+                    settings.push(val);
                 }
             }
 
@@ -320,7 +329,7 @@
         var series;
 
         // map loaded data
-        var mapping = dataTable.mapAs({'value': 1, 'open': 1, 'high': 2, 'low': 3, 'close': 4});
+        var mapping = dataTable.mapAs({'value': 1, 'volume': 1, 'open': 1, 'high': 2, 'low': 3, 'close': 4});
 
         // create stock chart
         chart = anychart.stock();
@@ -415,7 +424,6 @@
 
     function createHtmlToIndicatorForm() {
         var $indicatorFormGroup;
-        var isSmoothingType;
         var indicatorSettings = indicatorsSettings.defaultSettings[indicatorsSettings.name];
         var $option;
         var i = 0;
@@ -437,31 +445,11 @@
                     $indicatorFormGroup.find('select').attr('id', key);
                     $indicatorFormGroup.find('label').attr('for', key).text(getInputLabelText(key));
 
-                    isSmoothingType = false;
-
-                    if (indicatorSettings.hasOwnProperty('smoothingType')) {
-                        for (i = 0; i < indicatorSettings.smoothingType.length; i++) {
-                            if (indicatorSettings[key] == indicatorSettings.smoothingType[i]) {
-                                isSmoothingType = true;
-                                break;
-                            }
-                        }
-                    }
-
-                    if (isSmoothingType) {
-                        for (i = 0; i < indicatorSettings.smoothingType.length; i++) {
-                            $option = $('<option></option>');
-                            $option.val(indicatorSettings.smoothingType[i].toLowerCase());
-                            $option.text(indicatorSettings.smoothingType[i].toUpperCase());
-                            $indicatorFormGroup.find('select').append($option);
-                        }
-                    } else {
-                        for (i = 0; i < indicatorsSettings.seriesType.length; i++) {
-                            $option = $('<option></option>');
-                            $option.val(indicatorsSettings.seriesType[i].toLowerCase());
-                            $option.text(getInputLabelText(indicatorsSettings.seriesType[i]));
-                            $indicatorFormGroup.find('select').append($option);
-                        }
+                    for (i = 0; i < indicatorsSettings.seriesType.length; i++) {
+                        $option = $('<option></option>');
+                        $option.val(indicatorsSettings.seriesType[i].toLowerCase());
+                        $option.text(getInputLabelText(indicatorsSettings.seriesType[i]));
+                        $indicatorFormGroup.find('select').append($option);
                     }
 
                     $indicatorFormGroup.removeAttr('id');
@@ -472,6 +460,21 @@
                     $indicatorFormGroup.find('input').attr('id', key);
 
                     $indicatorFormGroup.removeAttr('id').find('label').attr('for', key).text(getInputLabelText(key));
+
+                } else if (typeof indicatorSettings[key] === 'object') {
+                    $indicatorFormRow.append(selectHtml);
+                    $indicatorFormGroup = $('#indicatorFormGroup');
+                    $indicatorFormGroup.find('select').attr('id', key);
+                    $indicatorFormGroup.find('label').attr('for', key).text(getInputLabelText(key));
+
+                    for (i = 0; i < indicatorSettings[key].length; i++) {
+                        $option = $('<option></option>');
+                        $option.val(indicatorSettings[key][i].toLowerCase());
+                        $option.text(indicatorSettings[key][i]);
+                        $indicatorFormGroup.find('select').append($option);
+                    }
+
+                    $indicatorFormGroup.removeAttr('id');
                 }
             }
         }

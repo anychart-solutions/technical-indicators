@@ -215,9 +215,8 @@
             <item name='kPeriod' value='14' type='number'/>
             <item name='kmaPeriod' value='1' type='number'/>
             <item name='dPeriod' value='3' type='number'/>
-            <item name='smoothingType' value='["sma", "ema"]' type='array'/>
-            <item name='kmaType' value='sma' type='string'/>
-            <item name='dmaType' value='sma' type='string'/>
+            <item name='kmaType' value='["sma", "ema"]' type='array'/>
+            <item name='dmaType' value='["sma", "ema"]' type='array'/>
             <item name='kSeriesType' value='line' type='string'/>
             <item name='dSeriesType' value='line' type='string'/>
         </defaults>
@@ -250,9 +249,8 @@
             <item name='kPeriod' value='20' type='number'/>
             <item name='kmaPeriod' value='10' type='number'/>
             <item name='dPeriod' value='3' type='number'/>
-            <item name='smoothingType' value='["sma", "ema"]' type='array'/>
-            <item name='kmaType' value='sma' type='string'/>
-            <item name='dmaType' value='sma' type='string'/>
+            <item name='kmaType' value='["sma", "ema"]' type='array'/>
+            <item name='dmaType' value='["sma", "ema"]' type='array'/>
             <item name='kSeriesType' value='line' type='string'/>
             <item name='dSeriesType' value='line' type='string'/>
         </defaults>
@@ -286,9 +284,8 @@
             <item name='kPeriod' value='14' type='number'/>
             <item name='kmaPeriod' value='3' type='number'/>
             <item name='dPeriod' value='3' type='number'/>
-            <item name='smoothingType' value='["sma", "ema"]' type='array'/>
-            <item name='kmaType' value='sma' type='string'/>
-            <item name='dmaType' value='sma' type='string'/>
+            <item name='kmaType' value='["sma", "ema"]' type='array'/>
+            <item name='dmaType' value='["sma", "ema"]' type='array'/>
             <item name='kSeriesType' value='line' type='string'/>
             <item name='dSeriesType' value='line' type='string'/>
         </defaults>
@@ -316,7 +313,7 @@
                     <li>the moving average type of the indicator for the %D value</li>
                     <li>a period for the %D value</li>
                     <li>multipliers of the %K and %D values for %J value calculating</li>
-                    <li>series types of the %K, %D and %J values.</li>  
+                    <li>series types of the %K, %D and %J values.</li>
                 </ul>
                 <b>Function</b>
                 <p>The Slow Stochastic Oscillator is used to determine whether there is bullish or bearish momentum behind
@@ -329,9 +326,8 @@
             <item name='kPeriod' value='14' type='number'/>
             <item name='kmaPeriod' value='5' type='number'/>
             <item name='dPeriod' value='5' type='number'/>
-            <item name='smoothingType' value='["sma", "ema"]' type='array'/>
-            <item name='kmaType' value='ema' type='string'/>
-            <item name='dmaType' value='ema' type='string'/>
+            <item name='kmaType' value='["ema", "sma"]' type='array'/>
+            <item name='dmaType' value='["ema", "sma"]' type='array'/>
             <item name='kMultiplier' value='-2' type='number'/>
             <item name='dMultiplier' value='3' type='number'/>
             <item name='kSeriesType' value='line' type='string'/>
@@ -467,6 +463,91 @@
             <item name='period' value='14' type='number'/>
             <item name='seriesType' value='line' type='string'/>
             <item name='plotIndex' value='0' type='number'/>
+        </defaults>
+    </indicator>
+    <indicator type='adl'>
+        <title>Accumulation Distribution Line (ADL)</title>
+        <abbreviation>ADL</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p></p>
+                <b>Parameters</b>
+                <p></p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='seriesType' value='line' type='string'/>
+        </defaults>
+    </indicator>
+    <indicator type='cci'>
+        <title>Commodity Channel Index (CCI)</title>
+        <abbreviation>CCI</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p></p>
+                <b>Parameters</b>
+                <p></p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='period' value='20' type='number'/>
+            <item name='seriesType' value='line' type='string'/>
+        </defaults>
+    </indicator>
+    <indicator type='cmf'>
+        <title>Chaikin Money Flow (CMF)</title>
+        <abbreviation>CMF</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p></p>
+                <b>Parameters</b>
+                <p></p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='period' value='20' type='number'/>
+            <item name='seriesType' value='line' type='string'/>
+        </defaults>
+    </indicator>
+    <indicator type='dmi'>
+        <title>Directional Movement Index (DMI)</title>
+        <abbreviation>DMI</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p></p>
+                <b>Parameters</b>
+                <p></p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='period' value='14' type='number'/>
+            <item name='adxPeriod' value='14' type='number'/>
+            <item name='useWildersSmoothing' value='["true", "false"]' type='array'/>
+            <item name='pdiSeries' value='line' type='string'/>
+            <item name='ndiSeries' value='line' type='string'/>
+            <item name='adxSeries' value='line' type='string'/>
+        </defaults>
+    </indicator>
+    <indicator type='cho'>
+        <title>Chaikin Oscillator (CHO)</title>
+        <abbreviation>CHO</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p></p>
+                <b>Parameters</b>
+                <p></p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='fastPeriod' value='3' type='number'/>
+            <item name='slowPeriod' value='10' type='number'/>
+            <item name='smoothingType' value='["sma", "ema"]' type='array'/>
+            <item name='seriesType' value='line' type='string'/>
         </defaults>
     </indicator>
 </indicators>
