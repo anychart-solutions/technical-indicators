@@ -7,7 +7,7 @@ and you can easily create your own.
 [<img src="https://static.anychart.com/images/github/technical-indicators.png?ver1.0" alt="Technical Indicators | AnyChart">](https://anychart.com/solutions/technical-indicators/)
 
 ## Modifying source code
-There is two possible options of modifying demo source code, [using Node.js and npm](#using-node.js-and-npm)
+There are two possible options of modifying demo source code, [using Node.js and npm](#using-nodejs-and-npm)
 and [with no additional requirements](#with-no-additional-requirements).
 
 ### Using Node.js and npm
