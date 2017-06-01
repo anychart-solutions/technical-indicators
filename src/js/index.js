@@ -123,7 +123,8 @@
             return a.value.toUpperCase().localeCompare(b.value.toUpperCase())
         });
         $indicatorTypeSelect.append(options);
-        
+
+        // init selectpicker
         $indicatorTypeSelect.selectpicker();
     });
 
@@ -408,6 +409,7 @@
         rangeSelector.render(chart);
 
         chart.listen('chartDraw', function () {
+
             setTimeout(function(){
                 $loader.hide();
             }, 100);
@@ -460,7 +462,6 @@
                     $indicatorFormGroup.find('input').attr('id', key);
 
                     $indicatorFormGroup.removeAttr('id').find('label').attr('for', key).text(getInputLabelText(key));
-
                 } else if (typeof indicatorSettings[key] === 'object') {
                     $indicatorFormRow.append(selectHtml);
                     $indicatorFormGroup = $('#indicatorFormGroup');

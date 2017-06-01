@@ -195,7 +195,8 @@ function updateTextForIndicatorTypeSelect($select) {
             return a.value.toUpperCase().localeCompare(b.value.toUpperCase())
         });
         $indicatorTypeSelect.append(options);
-        
+
+        // init selectpicker
         $indicatorTypeSelect.selectpicker();
     });
 
@@ -480,6 +481,7 @@ function updateTextForIndicatorTypeSelect($select) {
         rangeSelector.render(chart);
 
         chart.listen('chartDraw', function () {
+
             setTimeout(function(){
                 $loader.hide();
             }, 100);
@@ -532,7 +534,6 @@ function updateTextForIndicatorTypeSelect($select) {
                     $indicatorFormGroup.find('input').attr('id', key);
 
                     $indicatorFormGroup.removeAttr('id').find('label').attr('for', key).text(getInputLabelText(key));
-
                 } else if (typeof indicatorSettings[key] === 'object') {
                     $indicatorFormRow.append(selectHtml);
                     $indicatorFormGroup = $('#indicatorFormGroup');
