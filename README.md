@@ -44,7 +44,10 @@ Also it imposes some limitations on demo source code modification process.
 
 ## Running on production
 All production files are located in [distribution](https://github.com/anychart-solutions/technical-indicators/tree/master/dist) folder.
-In case you did some modification of the source code, you need to rebuild production files as mentioned in [Using Node.js and npm](#using-node.js-and-npm) section or manually.
+In case you did some modification of the source code, you need to rebuild production files as mentioned in [Using Node.js and npm](#using-node.js-and-npm) section or manually using following command.
+```
+gulp prod
+```
 
 ## Installing requirements
 To run demo development environment, please, ensure you have installed [Git](https://git-scm.com/), [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/) and [gulp](http://gulpjs.com/), overwise:
