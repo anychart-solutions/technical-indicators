@@ -133,14 +133,14 @@
         // (http://cdn.anychart.com/js/latest/data-adapter.min.js)
         // Load JSON data and create a chart by JSON data.
         anychart.data.loadJsonFile($chartDataSelect.find('option:selected').data().json, function (data) {
-            appSettingsCache['data'][$chartDataSelect.find('option:selected').text().toLowerCase()] = data;
+            appSettingsCache['data'][$chartDataSelect.find('option:selected').text().toLowerCase().trim()] = data;
             // init, create chart
             app.createChart(chartContainer);
         });
 
         // event to set data to chart
         $chartDataSelect.on('change', function () {
-            var name = $(this).find('option:selected').text().toLowerCase();
+            var name = $(this).find('option:selected').text().toLowerCase().trim();
 
             if (!~Object.keys(appSettingsCache['data']).indexOf(name)) {
                 // To work with the data adapter you need to reference the data adapter script file from AnyChart CDN
@@ -321,7 +321,7 @@
     });
 
     function createChart(container, updateChart) {
-        var dataName = $chartDataSelect.find('option:selected').text();
+        var dataName = $chartDataSelect.find('option:selected').text().trim();
         var seriesType = $seriesTypeSelect.val();
 
         // create data table on loaded data
