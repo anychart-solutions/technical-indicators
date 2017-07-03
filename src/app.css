@@ -157,7 +157,7 @@ body, html {
     opacity: 1; } }
 
 @media screen and (max-width: 1200px) {
-  #indicatorNavPanel li {
+  #indicatorNavPanel > li {
     margin-bottom: 10px; } }
 
 @media screen and (max-width: 769px) {
