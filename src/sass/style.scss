@@ -1,11 +1,36 @@
+body, html {
+  height: 100%;
+}
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
   background: #fff;
 }
 
+.iframe {
+  #chart-container {
+    padding-top: 0;
+    height: 650px;
+  }
+
+  #indicatorNavPanel {
+    position: relative;
+  }
+
+  .modal-backdrop.in {
+    opacity: 0;
+  }
+}
+
+#indicatorNavPanel {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 #chart-container {
-  height: 650px;
+  padding-top: 54px;
+  height: 100%;
 }
 
 #indicatorForm {
@@ -43,10 +68,6 @@ body {
       margin-right: 3px;
     }
   }
-}
-
-.modal-backdrop.in {
-  opacity: 0;
 }
 
 .modal-open .modal {

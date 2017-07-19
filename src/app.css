@@ -1,9 +1,28 @@
+body, html {
+  height: 100%; }
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   background: #fff; }
 
-#chart-container {
+.iframe #chart-container {
+  padding-top: 0;
   height: 650px; }
+
+.iframe #indicatorNavPanel {
+  position: relative; }
+
+.iframe .modal-backdrop.in {
+  opacity: 0; }
+
+#indicatorNavPanel {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+#chart-container {
+  padding-top: 54px;
+  height: 100%; }
 
 #indicatorForm h5 {
   font-weight: 600;
@@ -32,9 +51,6 @@ body {
     #indicatorNavPanel.list-nav > li {
       display: inline-block;
       margin-right: 3px; }
-
-.modal-backdrop.in {
-  opacity: 0; }
 
 .modal-open .modal {
   overflow-x: hidden;

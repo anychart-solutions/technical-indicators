@@ -56,8 +56,10 @@
             </div>
             <div class="modal-body">
                 <div class="alert alert-danger"><strong>XHR Fail: </strong>
-                    This Sample will properly work only if upload it to a server and access via http or https. Please see <a
-                            href="https://github.com/anychart-solutions/technical-indicators" target="_blank">https://github.com/anychart-solutions/technical-indicators</a> to learn more.
+                    This Sample will properly work only if upload it to a server and access via http or https. Please
+                    see <a
+                            href="https://github.com/anychart-solutions/technical-indicators" target="_blank">https://github.com/anychart-solutions/technical-indicators</a>
+                    to learn more.
                 </div>
             </div>
         </div>
@@ -84,56 +86,53 @@
     </div>
 </div>
 
-<div class="wrapper">
-    <ul class="list list-unstyled list-nav" id="indicatorNavPanel">
-        <li>
-            <select name="" id="chartDataSelect" class="select selectpicker show-tick" title="Select Data Chart">
-                <option value="1" selected data-json="./data/msft.json">MSFT</option>
-                <option value="2" data-json="./data/orcl.json">ORCL</option>
-                <option value="3" data-json="./data/csco.json">CSCO</option>
-                <option value="4" data-json="./data/ibm.json">IBM</option>
-            </select>
-        </li>
+<ul class="list list-unstyled list-nav" id="indicatorNavPanel">
+    <li>
+        <select name="" id="chartDataSelect" class="select selectpicker show-tick" title="Select Data Chart">
+            <option value="1" selected data-json="./data/msft.json">MSFT</option>
+            <option value="2" data-json="./data/orcl.json">ORCL</option>
+            <option value="3" data-json="./data/csco.json">CSCO</option>
+            <option value="4" data-json="./data/ibm.json">IBM</option>
+        </select>
+    </li>
 
-        <li>
-            <select name="" id="seriesTypeSelect" class="select selectpicker show-tick">
-                <option value="area">Area Chart</option>
-                <option value="candlestick" selected>Candlestick Chart</option>
-                <option value="column">Column Chart</option>
-                <option value="jumpLine">Jump Line Chart</option>
-                <option value="line">Line Chart</option>
-                <option value="marker">Marker Chart</option>
-                <option value="ohlc">OHLC Chart</option>
-                <option value="rangeArea">Range Area Chart</option>
-                <option value="rangeColumn">Range Column Chart</option>
-                <option value="rangeSplineArea">Range Spline Area Chart</option>
-                <option value="rangeStepArea">Range Step Area Chart</option>
-                <option value="spline">Spline Chart</option>
-                <option value="splineArea">Spline Area Chart</option>
-                <option value="stepArea">Step Area Chart</option>
-                <option value="stepLine">Step Line Chart</option>
-                <option value="stick">Stick Chart</option>
-            </select>
-        </li>
+    <li>
+        <select name="" id="seriesTypeSelect" class="select selectpicker show-tick">
+            <option value="area">Area Chart</option>
+            <option value="candlestick" selected>Candlestick Chart</option>
+            <option value="column">Column Chart</option>
+            <option value="jumpLine">Jump Line Chart</option>
+            <option value="line">Line Chart</option>
+            <option value="marker">Marker Chart</option>
+            <option value="ohlc">OHLC Chart</option>
+            <option value="rangeArea">Range Area Chart</option>
+            <option value="rangeColumn">Range Column Chart</option>
+            <option value="rangeSplineArea">Range Spline Area Chart</option>
+            <option value="rangeStepArea">Range Step Area Chart</option>
+            <option value="spline">Spline Chart</option>
+            <option value="splineArea">Spline Area Chart</option>
+            <option value="stepArea">Step Area Chart</option>
+            <option value="stepLine">Step Line Chart</option>
+            <option value="stick">Stick Chart</option>
+        </select>
+    </li>
 
-        <li>
-            <select name="" class="select selectpicker show-tick" id="scaleTypeSelect" title="Scale">
-                <option value="linear" selected>Linear</option>
-                <option value="log">Logarithmic</option>
-            </select>
-        </li>
+    <li>
+        <select name="" class="select selectpicker show-tick" id="scaleTypeSelect" title="Scale">
+            <option value="linear" selected>Linear</option>
+            <option value="log">Logarithmic</option>
+        </select>
+    </li>
 
-        <li>
-            <select class="select show-tick" multiple name="" data-width="350" id="indicatorTypeSelect"
-                    title="Add Indicator">
-            </select>
-        </li>
+    <li>
+        <select class="select show-tick" multiple name="" data-width="350" id="indicatorTypeSelect"
+                title="Add Indicator">
+        </select>
+    </li>
 
-        <li><a class="btn btn-default" href="" id="resetButton">Reset</a></li>
-    </ul>
-
-    <div id="chart-container"></div>
-</div>
+    <li><a class="btn btn-default" href="" id="resetButton">Reset</a></li>
+</ul>
+<div id="chart-container"></div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
