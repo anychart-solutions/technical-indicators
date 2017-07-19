@@ -15,13 +15,7 @@ body {
 .iframe .modal-backdrop.in {
   opacity: 0; }
 
-#indicatorNavPanel {
-  position: absolute;
-  top: 0;
-  left: 0; }
-
 #chart-container {
-  padding-top: 54px;
   height: 100%; }
 
 #indicatorForm h5 {
@@ -178,17 +172,28 @@ body {
   100% {
     opacity: 1; } }
 
+@media screen and (min-width: 1200px) {
+  #indicatorNavPanel {
+    position: absolute;
+    top: 0;
+    left: 0; }
+  #chart-container {
+    padding-top: 54px;
+    height: 100%; } }
+
 @media screen and (max-width: 1200px) {
   #indicatorNavPanel > li {
     margin-bottom: 10px; } }
 
 @media screen and (max-width: 769px) {
-  #indicatorNavPanel.list-nav > li {
+  #indicatorNavPanel {
     display: block; }
-  #indicatorNavPanel.list-nav div.select.bootstrap-select {
-    width: 100% !important; }
-  #indicatorNavPanel #resetButton {
-    display: block;
-    width: 100%;
-    max-width: 150px;
-    margin: 0 auto; } }
+    #indicatorNavPanel.list-nav > li {
+      display: block; }
+    #indicatorNavPanel.list-nav div.select.bootstrap-select {
+      width: 100% !important; }
+    #indicatorNavPanel #resetButton {
+      display: block;
+      width: 100%;
+      max-width: 150px;
+      margin: 0 auto; } }

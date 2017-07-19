@@ -1,3 +1,16 @@
+@media screen and (min-width: 1200px) {
+  #indicatorNavPanel {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #chart-container {
+    padding-top: 54px;
+    height: 100%;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   #indicatorNavPanel {
     & > li {
@@ -8,6 +21,8 @@
 
 @media screen and (max-width: 769px) {
   #indicatorNavPanel {
+    display: block;
+
     &.list-nav {
       & > li {
         display: block;
