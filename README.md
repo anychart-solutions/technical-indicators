@@ -60,7 +60,8 @@ To run demo development environment, please, ensure you have installed [Git](htt
 * [Documentation](https://docs.anychart.com)
 * [JavaScript API Reference](https://api.anychart.com)
 * [Code Playground](https://playground.anychart.com)
-* [Technical Support](https://anychart.com/support)
+* [Technical Support](https://www.anychart.com/support)
 
 ## License
-[© AnyChart.com - JavaScript charts](https://www.anychart.com). Released under the [Apache 2.0 License](https://github.com/anychart-solutions/technical-indicators/blob/master/LICENSE).
+[© AnyChart.com - JavaScript charts](https://www.anychart.com). 
+[![Analytics](https://ga-beacon.appspot.com/UA-228820-4/Solutions/Technical-Indicators?pixel&useReferer)](https://github.com/igrigorik/ga-beacon)
