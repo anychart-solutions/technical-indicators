@@ -202,7 +202,7 @@ function updateTextForIndicatorTypeSelect($select) {
 
     anychart.onDocumentReady(function () {
         // To work with the data adapter you need to reference the data adapter script file from AnyChart CDN
-        // (http://cdn.anychart.com/js/latest/data-adapter.min.js)
+        // (https://cdn.anychart.com/js/latest/data-adapter.min.js)
         // Load JSON data and create a chart by JSON data.
         anychart.data.loadJsonFile($chartDataSelect.find('option:selected').data().json, function (data) {
             appSettingsCache['data'][$chartDataSelect.find('option:selected').text().toLowerCase().trim()] = data;
@@ -216,7 +216,7 @@ function updateTextForIndicatorTypeSelect($select) {
 
             if (!~Object.keys(appSettingsCache['data']).indexOf(name)) {
                 // To work with the data adapter you need to reference the data adapter script file from AnyChart CDN
-                // (http://cdn.anychart.com/js/latest/data-adapter.min.js)
+                // (https://cdn.anychart.com/js/latest/data-adapter.min.js)
                 // Load JSON data and create a chart by JSON data.
                 anychart.data.loadJsonFile($(this).find('option:selected').data().json, function (data) {
                     appSettingsCache['data'][name] = data;
