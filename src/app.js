@@ -97,13 +97,13 @@ function updateTextForIndicatorTypeSelect($select) {
         seriesType: [
             'area',
             'column',
-            'jumpLine',
+            'jump-line',
             'line',
             'marker',
             'spline',
-            'splineArea',
-            'stepArea',
-            'stepLine',
+            'spline-area',
+            'step-area',
+            'step-line',
             'stick'
         ]
     };
