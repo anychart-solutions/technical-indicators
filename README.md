@@ -4,7 +4,7 @@
 Need to analyze your data? Our JS charts include dozens of pre-built technical indicators
 and you can easily create your own.
 
-[<img src="https://static.anychart.com/images/github/technical-indicators.png?ver1.0" alt="Technical Indicators | AnyChart">](https://anychart.com/solutions/technical-indicators/)
+[<img src="https://static.anychart.com/images/github/technical-indicators.png?ver1.0" alt="Technical Indicators | AnyChart">](https://www.anychart.com/solutions/technical-indicators/)
 
 ## Modifying source code
 There are two possible options of modifying demo source code, [using Node.js and npm](#using-nodejs-and-npm)
@@ -44,7 +44,10 @@ Also it imposes some limitations on demo source code modification process.
 
 ## Running on production
 All production files are located in [distribution](https://github.com/anychart-solutions/technical-indicators/tree/master/dist) folder.
-In case you did some modification of the source code, you need to rebuild production files as mentioned in [Using Node.js and npm](#using-node.js-and-npm) section or manually.
+In case you did some modification of the source code, you need to rebuild production files as mentioned in [Using Node.js and npm](#using-node.js-and-npm) section or manually using following command.
+```
+gulp prod
+```
 
 ## Installing requirements
 To run demo development environment, please, ensure you have installed [Git](https://git-scm.com/), [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/) and [gulp](http://gulpjs.com/), overwise:
@@ -57,7 +60,12 @@ To run demo development environment, please, ensure you have installed [Git](htt
 * [Documentation](https://docs.anychart.com)
 * [JavaScript API Reference](https://api.anychart.com)
 * [Code Playground](https://playground.anychart.com)
-* [Technical Support](https://anychart.com/support)
+* [Technical Support](https://www.anychart.com/support)
 
 ## License
-[© AnyChart.com - JavaScript charts](https://www.anychart.com). Released under the [Apache 2.0 License](https://github.com/anychart-solutions/technical-indicators/blob/master/LICENSE).
+AnyChart Technical Indicators solution sample includes two parts:
+- code of the solution sample that allows to use Javascript library (in this case, AnyChart). You can use, edit, modify it, use it with other Javascript libraries without any restrictions. It is released under [Apache 2.0 License](https://github.com/anychart-solutions/technical-indicators/blob/master/LICENSE).
+- AnyChart JavaScript library. It is released under Commercial license. You can test this plugin with the trial version of AnyChart. Our trial version is not limited by time and doesn't contain any feature limitations. Check details [here](https://www.anychart.com/buy/)
+
+If you have any questions regarding licensing - please contact us. <sales@anychart.com>
+[![Analytics](https://ga-beacon.appspot.com/UA-228820-4/Solutions/Technical-Indicators?pixel&useReferer)](https://github.com/igrigorik/ga-beacon)

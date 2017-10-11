@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- AnyChart UI -->
-    <link rel="stylesheet" href="https://cdn.anychart.com/css/latest/anychart-ui.min.css">
-    <link rel="stylesheet" href="https://cdn.anychart.com/fonts/2.7.2/anychart.css">
+    <link rel="stylesheet" href="https://cdn.anychart.com/releases/8.0.0/css/anychart-ui.min.css">
+    <link rel="stylesheet" href="https://cdn.anychart.com/releases/8.0.0/fonts/css/anychart.min.css">
 
     <!-- Latest compiled and minified CSS Bootstrap Select -->
     <link rel="stylesheet"
@@ -96,26 +96,28 @@
         </select>
     </li>
 
-    <li>
-        <select name="" id="seriesTypeSelect" class="select selectpicker show-tick">
-            <option value="area">Area Chart</option>
-            <option value="candlestick" selected>Candlestick Chart</option>
-            <option value="column">Column Chart</option>
-            <option value="jumpLine">Jump Line Chart</option>
-            <option value="line">Line Chart</option>
-            <option value="marker">Marker Chart</option>
-            <option value="ohlc">OHLC Chart</option>
-            <option value="rangeArea">Range Area Chart</option>
-            <option value="rangeColumn">Range Column Chart</option>
-            <option value="rangeSplineArea">Range Spline Area Chart</option>
-            <option value="rangeStepArea">Range Step Area Chart</option>
-            <option value="spline">Spline Chart</option>
-            <option value="splineArea">Spline Area Chart</option>
-            <option value="stepArea">Step Area Chart</option>
-            <option value="stepLine">Step Line Chart</option>
-            <option value="stick">Stick Chart</option>
-        </select>
-    </li>
+        <li>
+            <select name="" id="seriesTypeSelect" class="select selectpicker show-tick">
+                <!--series constructors-->
+                <option value="area">Area Chart</option>
+                <option value="candlestick" selected>Candlestick Chart</option>
+                <option value="column">Column Chart</option>
+                <option value="jumpLine">Jump Line Chart</option>
+                <option value="line">Line Chart</option>
+                <option value="marker">Marker Chart</option>
+                <option value="ohlc">OHLC Chart</option>
+                <option value="rangeArea">Range Area Chart</option>
+                <option value="rangeColumn">Range Column Chart</option>
+                <option value="rangeSplineArea">Range Spline Area Chart</option>
+                <option value="rangeStepArea">Range Step Area Chart</option>
+                <option value="spline">Spline Chart</option>
+                <option value="splineArea">Spline Area Chart</option>
+                <option value="stepArea">Step Area Chart</option>
+                <option value="stepLine">Step Line Chart</option>
+                <option value="stick">Stick Chart</option>
+                <!---->
+            </select>
+        </li>
 
     <li>
         <select name="" class="select selectpicker show-tick" id="scaleTypeSelect" title="Scale">
@@ -141,9 +143,12 @@
 <!-- Latest compiled and minified JavaScript Bootstrap Select -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 
-<script src="https://cdn.anychart.com/js/latest/anychart-bundle.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-stock.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-exports.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-ui.min.js"></script>
 <!-- Data adapter -->
-<script src="https://cdn.anychart.com/js/latest/data-adapter.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-data-adapter.min.js"></script>
 
 <script src="app.js"></script>
 

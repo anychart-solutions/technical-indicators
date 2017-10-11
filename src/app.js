@@ -97,13 +97,13 @@ function updateTextForIndicatorTypeSelect($select) {
         seriesType: [
             'area',
             'column',
-            'jumpLine',
+            'jump-line',
             'line',
             'marker',
             'spline',
-            'splineArea',
-            'stepArea',
-            'stepLine',
+            'spline-area',
+            'step-area',
+            'step-line',
             'stick'
         ]
     };
@@ -189,7 +189,7 @@ function updateTextForIndicatorTypeSelect($select) {
             indicatorsSettings['defaultSettings'][indicatorName]['overview']['title'] = $(item).find('title').text();
             indicatorsSettings['defaultSettings'][indicatorName]['overview']['description'] = description;
         });
-        
+
         // sort option in select
         var options = $indicatorTypeSelect.find('option').sort(function (a, b) {
             return a.value.toUpperCase().localeCompare(b.value.toUpperCase())
@@ -202,7 +202,7 @@ function updateTextForIndicatorTypeSelect($select) {
 
     anychart.onDocumentReady(function () {
         // To work with the data adapter you need to reference the data adapter script file from AnyChart CDN
-        // (https://cdn.anychart.com/js/latest/data-adapter.min.js)
+        // (https://cdn.anychart.com/releases/8.0.0/js/anychart-data-adapter.min.js)
         // Load JSON data and create a chart by JSON data.
         anychart.data.loadJsonFile($chartDataSelect.find('option:selected').data().json, function (data) {
             appSettingsCache['data'][$chartDataSelect.find('option:selected').text().toLowerCase().trim()] = data;
@@ -216,7 +216,7 @@ function updateTextForIndicatorTypeSelect($select) {
 
             if (!~Object.keys(appSettingsCache['data']).indexOf(name)) {
                 // To work with the data adapter you need to reference the data adapter script file from AnyChart CDN
-                // (https://cdn.anychart.com/js/latest/data-adapter.min.js)
+                // (https://cdn.anychart.com/releases/8.0.0/js/anychart-data-adapter.min.js)
                 // Load JSON data and create a chart by JSON data.
                 anychart.data.loadJsonFile($(this).find('option:selected').data().json, function (data) {
                     appSettingsCache['data'][name] = data;
