@@ -53,7 +53,7 @@ gulp prod
 To run demo development environment, please, ensure you have installed [Git](https://git-scm.com/), [Node.js](https://nodejs.org/), [npm](https://www.npmjs.com/) and [gulp](http://gulpjs.com/), overwise:
 * To install Node.js and npm, visit [installation instructions](https://docs.npmjs.com/getting-started/installing-node) page.
 * To install gulp globally using `npm install gulp -g` command.
-* To install git, visit [installation instructions|https://git-scm.com/book/en/v1/Getting-Started-Installing-Git] page.
+* To install git, visit [installation instructions](https://git-scm.com/book/en/v1/Getting-Started-Installing-Git) page.
 
 ## Links
 * [Technical Indicators Demo at AnyChart.Com](https://www.anychart.com/solutions/technical-indicators/)
@@ -68,4 +68,4 @@ AnyChart Technical Indicators solution sample includes two parts:
 - AnyChart JavaScript library. It is released under Commercial license. You can test this plugin with the trial version of AnyChart. Our trial version is not limited by time and doesn't contain any feature limitations. Check details [here](https://www.anychart.com/buy/)
 
 If you have any questions regarding licensing - please contact us. <sales@anychart.com>
-[![Analytics](https://ga-beacon.appspot.com/UA-228820-4/Solutions/Technical-Indicators?pixel&useReferer)](https://github.com/igrigorik/ga-beacon)
+[![Analytics](https://ga-beacon.appspot.com/UA-228820-4/Solutions/technical-indicators?pixel&useReferer)](https://github.com/igrigorik/ga-beacon)
