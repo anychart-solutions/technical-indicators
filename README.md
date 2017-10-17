@@ -16,7 +16,7 @@ This option is recommend because it runs all development environment you need:
 * Watches for changes in source files and rebuilds distribution files on the fly.
 * Dynamically reload web page using [browser-sync](https://www.browsersync.io/) tool.
 
-Please, ensure you have all [requirements](#installing-requirements) installed before running.  
+Please, ensure you have all [requirements](#in-requirements) installed before running.
 Then, to run demo with Nodej.js and npm, use following commands:
 ```
 git clone git@github.com:anychart-solutions/technical-indicators.git
@@ -68,4 +68,3 @@ AnyChart Technical Indicators solution sample includes two parts:
 - AnyChart JavaScript library. It is released under Commercial license. You can test this plugin with the trial version of AnyChart. Our trial version is not limited by time and doesn't contain any feature limitations. Check details [here](https://www.anychart.com/buy/)
 
 If you have any questions regarding licensing - please contact us. <sales@anychart.com>
-[![Analytics](https://ga-beacon.appspot.com/UA-228820-4/Solutions/technical-indicators?pixel&useReferer)](https://github.com/igrigorik/ga-beacon)
