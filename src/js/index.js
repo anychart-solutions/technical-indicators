@@ -384,7 +384,7 @@
         var yAxis = plot.yAxis(1);
         yAxis.orientation('right');
         // setting chart padding to fit both Y axes
-        chart.padding(10, 50, 20, 50);
+        chart.padding(10, 30, 20, 30);
 
         // create scroller series with mapped data
         chart.scroller().line(mapping);

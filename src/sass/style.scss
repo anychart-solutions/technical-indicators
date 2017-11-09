@@ -52,9 +52,7 @@ body {
   display: table;
 
   &.list-nav {
-    padding-top: 20px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 0;
 
     & > li {
       display: inline-block;
