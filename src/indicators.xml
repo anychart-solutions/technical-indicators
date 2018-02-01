@@ -550,4 +550,68 @@
             <item name='seriesType' value='line' type='string'/>
         </defaults>
     </indicator>
+    <indicator type='mfi'>
+        <title>Money Flow Index (MFI)</title>
+        <abbreviation>MFI</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>Money flow index (MFI) is an oscillator calculated over an N-day period, ranging from 0 to 100, showing money flow on up days as a percentage of the total of up and down days.</p>
+                <b>Parameters</b>
+                <p>Money Flow Index indicator has only one parameter: the period.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='period' value='10' type='number'/>
+            <item name='seriesType' value='line' type='string'/>
+        </defaults>
+    </indicator>
+    <indicator type='momentum'>
+        <title>Momentum</title>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>The Momentum indicator is a speed of movement indicator, that is designed to identify the speed (or strength) of a price movement. The momentum indicator compares the most recent closing price to a previous closing price and may be used as a trend-following oscillator (similar to the <a href="https://docs.anychart.com/Stock_Charts/Technical_Indicators/Moving_Average_Convergence_Divergence_(MACD)" target="_blank">Moving Average Convergence/Divergence (MACD)</a>).</p>
+                <b>Parameters</b>
+                <p>Momentum indicator has only one parameter: the period.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='period' value='14' type='number'/>
+            <item name='seriesType' value='line' type='string'/>
+        </defaults>
+    </indicator>
+    <indicator type='williamsR'>
+        <title>Williams %R</title>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>Williams %R, or just %R, is a momentum indicator showing the current closing price in relation to the high and low of the past N days (for a given N). It was developed by trader and author Larry Williams and is used in the stock and commodities markets.</p>
+                <b>Parameters</b>
+                <p>Williams %R indicator has only one parameter: the period.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='period' value='10' type='number'/>
+            <item name='seriesType' value='line' type='string'/>
+        </defaults>
+    </indicator>
+    <indicator type='psar'>
+        <title>Parabolic SAR (PSAR)</title>
+        <abbreviation>PSAR</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>Parabolic SAR (SAR - stop and reverse) is a method devised by J. Welles Wilder, Jr, to find trends in market prices or securities. It may be used as a trailing stop loss based on prices tending to stay within a parabolic curve during a strong trend.</p>
+                <b>Parameters</b>
+                <p>Parabolic SAR Indicator has two specific parameters: stepPeriod and maxStepPeriod.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='stepPeriod' value='0.02' type='number'/>
+            <item name='maxStepPeriod' value='0.2' type='number'/>
+            <item name='seriesType' value='marker' type='string'/>
+            <item name='plotIndex' value='0' type='number'/>
+        </defaults>
+    </indicator>
 </indicators>
