@@ -17,7 +17,10 @@ body, html {
   margin-bottom: 10px; }
 
 #indicatorForm label {
-  font-weight: 400; }
+  font-weight: 400;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden; }
 
 #indicatorForm input::-webkit-outer-spin-button,
 #indicatorForm input::-webkit-inner-spin-button {

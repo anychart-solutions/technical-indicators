@@ -608,8 +608,9 @@
             ]]>
         </description>
         <defaults>
-            <item name='stepPeriod' value='0.02' type='number'/>
-            <item name='maxStepPeriod' value='0.2' type='number'/>
+            <item name='accelerationFactorStart' value='0.02' type='number'/>
+            <item name='accelerationFactorIncrement' value='0.02' type='number'/>
+            <item name='accelerationFactorMaximum' value='0.2' type='number'/>
             <item name='seriesType' value='marker' type='string'/>
             <item name='plotIndex' value='0' type='number'/>
         </defaults>

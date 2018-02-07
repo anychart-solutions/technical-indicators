@@ -24,6 +24,9 @@ body, html {
 
   label {
     font-weight: 400;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   input::-webkit-outer-spin-button,

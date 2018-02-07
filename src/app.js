@@ -362,7 +362,6 @@ function updateTextForIndicatorTypeSelect($select) {
         // event to add indicator
         $addIndicatorBtn.on('click', function () {
             var mapping = dataTable.mapAs({'value': 1, 'volume': 1, 'open': 1, 'high': 2, 'low': 3, 'close': 4});
-            // var keys = Object.keys(indicatorsSettings.defaultSettings[indicatorsSettings.name]);
             var indicator = indicatorsSettings.defaultSettings[indicatorsSettings.name];
             var settings = [mapping];
             var indicatorName = indicatorsSettings.name;
@@ -375,7 +374,7 @@ function updateTextForIndicatorTypeSelect($select) {
             for (key in indicator) {
                 if (key !== 'overview' && key !== 'plotIndex') {
                     var val = $('#' + key).val();
-                    val = val == 'true' || val == 'false' ? val == 'true' : val;
+                    val = val === 'true' || val === 'false' ? val === 'true' : val;
                     settings.push(val);
                 }
             }
