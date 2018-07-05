@@ -101,9 +101,9 @@
         <defaults>
             <item name='period' value='20' type='number'/>
             <item name='deviation' value='2' type='number'/>
+            <item name='middleSeriesType' value='line' type='string'/>
             <item name='upperSeriesType' value='line' type='string'/>
             <item name='lowerSeriesType' value='line' type='string'/>
-            <item name='middleSeriesType' value='line' type='string'/>
             <item name='plotIndex' value='0' type='number'/>
         </defaults>
     </indicator>
