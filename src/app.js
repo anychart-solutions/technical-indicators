@@ -347,7 +347,7 @@ function updateTextForIndicatorTypeSelect($select) {
             // reset saved settings
             appSettingsCache['indicators'] = {};
             appSettingsCache['scale'] = 'linear';
-            appSettingsCache['chartType'] = 'line';
+            appSettingsCache['chartType'] = 'candlestick';
 
             // select msft data
             $chartDataSelect.val(1).selectpicker('refresh');
