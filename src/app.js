@@ -104,7 +104,10 @@ function updateTextForIndicatorTypeSelect($select) {
             'spline-area',
             'step-area',
             'step-line',
-            'stick'
+            'stick',
+            'range-area',
+            'candlestick',
+            'ohlc'
         ]
     };
 

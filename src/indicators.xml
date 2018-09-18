@@ -49,6 +49,7 @@
             <item name='period' value='20' type='number'/>
             <item name='upSeriesType' value='line' type='string'/>
             <item name='downSeriesType' value='line' type='string'/>
+            <item name='plotIndex' value='1' type='number'/>
         </defaults>
     </indicator>
     <indicator type='atr'>
@@ -72,6 +73,26 @@
         <defaults>
             <item name='period' value='14' type='number'/>
             <item name='seriesType' value='line' type='string'/>
+            <item name='plotIndex' value='2' type='number'/>
+        </defaults>
+    </indicator>
+    <indicator type='ao'>
+        <title>Awesome Oscillator (AO)</title>
+        <abbreviation>AO</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>The Awesome Oscillator (AO) was created by Bill Williams. The Awesome Oscillator is an indicator used to measure market momentum. The Awesome Oscillator indicator is a histogram, it is similar to the MACD indicator – displaying the market momentum of a recent number of periods compared to the momentum of a larger number of previous periods. AO calculates the difference between a 34 Period and 5 Period Simple Moving Average. The Simple Moving Averages that are used are not calculated using closing price but rather each bar's midpoints. AO is generally used to affirm trends or to anticipate possible reversals. If the AO histogram is crossing above the zero line that’s indicative of bullish momentum, reverse is true as well - when AO crosses below that’s indicative of bearish momentum.</p>
+                <b>Parameters</b>
+                <p>There are three parameters an Awesome Oscillator indicator has, one of them is necessary - the mapping. The second parameter and third parameters set perod, fourth - Moving Average Type. The last parameter sets the series type.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='fastPeriod' value='5' type='number'/>
+            <item name='slowPeriod' value='34' type='number'/>
+            <item name='maType' value='["sma", "ema"]' type='array'/>
+            <item name='seriesType' value='stick' type='string'/>
+            <item name='plotIndex' value='3' type='number'/>
         </defaults>
     </indicator>
     <indicator type='bbands'>
@@ -133,6 +154,7 @@
             <item name='period' value='20' type='number'/>
             <item name='deviation' value='2' type='number'/>
             <item name='seriesType' value='line' type='string'/>
+            <item name='plotIndex' value='4' type='number'/>
         </defaults>
     </indicator>
     <indicator type='bbandsWidth'>
@@ -154,6 +176,7 @@
             <item name='period' value='20' type='number'/>
             <item name='deviation' value='2' type='number'/>
             <item name='seriesType' value='line' type='string'/>
+            <item name='plotIndex' value='5' type='number'/>
         </defaults>
     </indicator>
     <indicator type='ema'>
@@ -183,6 +206,22 @@
             <item name='period' value='20' type='number'/>
             <item name='seriesType' value='line' type='string'/>
             <item name='plotIndex' value='0' type='number'/>
+        </defaults>
+    </indicator>
+    <indicator type='ha'>
+        <title>Heikin-Ashi (HA)</title>
+        <abbreviation>HA</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>Heikin-Ashi Candlesticks are an offshoot from Japanese candlesticks. Heikin-Ashi Candlesticks use the open-close data from the prior period and the open-high-low-close data from the current period to create a combo candlestick. The resulting candlestick filters out some noise in an effort to better capture the trend. In Japanese, Heikin means "average" and ashi means "pace". Taken together, Heikin-Ashi represents the average pace of prices. Heikin-Ashi Candlesticks are used to identify trending periods, potential reversal points and classic technical analysis patterns.</p>
+                <b>Parameters</b>
+                <p>For Heikin-Ashi indicator only series type can be adjusted.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='seriesType' value='candlestick' type='string'/>
+            <item name='plotIndex' value='6' type='number'/>
         </defaults>
     </indicator>
     <indicator type='stochastic'>
@@ -219,6 +258,7 @@
             <item name='dmaType' value='["sma", "ema"]' type='array'/>
             <item name='kSeriesType' value='line' type='string'/>
             <item name='dSeriesType' value='line' type='string'/>
+            <item name='plotIndex' value='7' type='number'/>
         </defaults>
     </indicator>
     <indicator type='fastStochastic'>
@@ -253,6 +293,7 @@
             <item name='dmaType' value='["sma", "ema"]' type='array'/>
             <item name='kSeriesType' value='line' type='string'/>
             <item name='dSeriesType' value='line' type='string'/>
+            <item name='plotIndex' value='8' type='number'/>
         </defaults>
     </indicator>
     <indicator type='slowStochastic'>
@@ -288,6 +329,7 @@
             <item name='dmaType' value='["sma", "ema"]' type='array'/>
             <item name='kSeriesType' value='line' type='string'/>
             <item name='dSeriesType' value='line' type='string'/>
+            <item name='plotIndex' value='9' type='number'/>
         </defaults>
     </indicator>
     <indicator type='kdj'>
@@ -313,7 +355,7 @@
                     <li>the moving average type of the indicator for the %D value</li>
                     <li>a period for the %D value</li>
                     <li>multipliers of the %K and %D values for %J value calculating</li>
-                    <li>series types of the %K, %D and %J values.</li>  
+                    <li>series types of the %K, %D and %J values.</li>
                 </ul>
                 <b>Function</b>
                 <p>The Slow Stochastic Oscillator is used to determine whether there is bullish or bearish momentum behind
@@ -333,6 +375,29 @@
             <item name='kSeriesType' value='line' type='string'/>
             <item name='dSeriesType' value='line' type='string'/>
             <item name='jSeriesType' value='line' type='string'/>
+            <item name='plotIndex' value='10' type='number'/>
+        </defaults>
+    </indicator>
+    <indicator type='keltnerChannels'>
+        <title>KeltnerChannels</title>
+        <abbreviation>KeltnerChannels</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>Keltner Channels are volatility-based envelopes set above and below an exponential moving average (EMA).</p>
+                <p>This indicator is similar to Bollinger Bands, which uses the standard deviation to set the bands. Instead of using the standard deviation, Keltner Channels use the Average True Range (ATR) to set the channel distance. The channels are typically set two Average True Range values above and below the 20-day EMA. The exponential moving average dictates the direction, and the Average True Range sets the channel width. Keltner Channels are a trend following indicator used to identify reversals with channel breakouts and channel direction. Channels can also be used to identify overbought and oversold levels when the trend is flat.</p>
+                <b>Parameters</b>
+                <p>There are six parameters a Keltner Channel indicator has. The "maPeriod" and "atrPeriod" parameters set the Moving Average period and Average True Range period. The "maType" parameter sets the smoothing type, the next parameter is the multiplier, and the three last parameters allow you to set the series type of Moving Average and the range series.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='maPeriod' value='20' type='number'/>
+            <item name='atrPeriod' value='10' type='number'/>
+            <item name='maType' value='["ema", "sma"]' type='array'/>
+            <item name='multiplier' value='2' type='number'/>
+            <item name='maSeriesType' value='line' type='string'/>
+            <item name='rangeSeriesType' value='range-area' type='string'/>
+            <item name='plotIndex' value='0' type='number'/>
         </defaults>
     </indicator>
     <indicator type='mma'>
@@ -386,6 +451,79 @@
             <item name='macdSeriesType' value='line' type='string'/>
             <item name='signalSeriesType' value='line' type='string'/>
             <item name='histogramSeriesType' value='column' type='string'/>
+            <item name='plotIndex' value='11' type='number'/>
+        </defaults>
+    </indicator>
+    <indicator type='obv'>
+        <title>On Balance Volume (OBV)</title>
+        <abbreviation>OBV</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>On Balance Volume (OBV) measures buying and selling pressure as a cumulative indicator that adds volume on up days and subtracts volume on down days. OBV was developed by Joe Granville and introduced in his 1963 book, Granville's New Key to Stock Market Profits. It was one of the first indicators to measure positive and negative volume flow. Chartists can look for divergences between OBV and price to predict price movements or use OBV to confirm price trends.</p>
+                <b>Parameters</b>
+                <p>For OBV indicator only series type can be adjusted.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='seriesType' value='line' type='string'/>
+            <item name='plotIndex' value='12' type='number'/>
+        </defaults>
+    </indicator>
+    <indicator type='momentum'>
+        <title>Momentum</title>
+        <abbreviation>Momentum</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>The Momentum indicator is a speed of movement indicator, that is designed to identify the speed (or strength) of a price movement. The momentum indicator compares the most recent closing price to a previous closing price and may be used as a trend-following oscillator (similar to the Moving Average Convergence Divergence (MACD)).</p>
+                <b>Parameters</b>
+                <p>There are two parameters: the period and the series type.</p>
+                <b>Function</b>
+                <p>The Momentum indicator identifies when the price is moving upwards or downwards, and also by how much the price is moving upwards or downwards. When the momentum indicator is above zero, the price has upwards momentum, and when the momentum indicator is below zero the price has downwards momentum.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='period' value='14' type='number'/>
+            <item name='seriesType' value='line' type='string'/>
+            <item name='plotIndex' value='13' type='number'/>
+        </defaults>
+    </indicator>
+    <indicator type='priceChannels'>
+        <title>Price Channels</title>
+        <abbreviation>PriceChannels</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>Price Channels are lines set above and below the price of a security. The upper channel is set at the x-period high and the lower channel is set at the x-period low. For a 20-day Price Channel, the upper channel would equal the 20-day high and the lower channel would equal the 20-day low. The dotted centerline is the midpoint between the two channel lines. Price Channels can be used to identify upward thrusts that signal the start of an uptrend or downward plunges that signal the start of a downtrend. Price Channels can also be used to identify overbought or oversold levels within a bigger downtrend or uptrend.</p>
+                <b>Parameters</b>
+                <p>There are four parameters a Price Channel indicator has. The first parameter sets the period, and the next three parameters allow you to set the series type of the middle and range series.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='period' value='20' type='number'/>
+            <item name='middleSeriesType' value='line' type='string'/>
+            <item name='rangeSeriesType' value='range-area' type='string'/>
+            <item name='plotIndex' value='0' type='number'/>
+        </defaults>
+    </indicator>
+    <indicator type='psar'>
+        <title>Parabolic SAR (PSAR)</title>
+        <abbreviation>PSAR</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>Parabolic SAR (SAR - stop and reverse) is a method devised by J. Welles Wilder, Jr, to find trends in market prices or securities. It may be used as a trailing stop loss based on prices tending to stay within a parabolic curve during a strong trend.</p>
+                <b>Parameters</b>
+                <p>There are four parameters a PSAR indicator has. Three other ones are the acceleration factor start, acceleration factor increment, acceleration factor maximum, and the series type.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='accelerationFactorStart' value='0.02' type='number'/>
+            <item name='accelerationFactorincrement' value='0.02' type='number'/>
+            <item name='accelerationFactorMaximum' value='0.02' type='number'/>
+            <item name='seriesType' value='marker' type='string'/>
+            <item name='plotIndex' value='14' type='number'/>
         </defaults>
     </indicator>
     <indicator type='roc'>
@@ -412,6 +550,7 @@
         <defaults>
             <item name='period' value='20' type='number'/>
             <item name='seriesType' value='line' type='string'/>
+            <item name='plotIndex' value='15' type='number'/>
         </defaults>
     </indicator>
     <indicator type='rsi'>
@@ -436,6 +575,7 @@
         <defaults>
             <item name='period' value='14' type='number'/>
             <item name='seriesType' value='line' type='string'/>
+            <item name='plotIndex' value='16' type='number'/>
         </defaults>
     </indicator>
     <indicator type='sma'>
@@ -471,13 +611,14 @@
         <description>
             <![CDATA[
                 <b>Description</b>
-                <p></p>
+                <p>Developed by Marc Chaikin, the Accumulation Distribution Line is a volume-based indicator designed to measure the cumulative flow of money into and out of a security. Chaikin originally referred to the indicator as the Cumulative Money Flow Line. As with cumulative indicators, the Accumulation Distribution Line is a running total of each period's Money Flow Volume. First, a multiplier is calculated based on the relationship of the close to the high-low range. Second, the Money Flow Multiplier is multiplied by the period's volume to come up with a Money Flow Volume. A running total of the Money Flow Volume forms the Accumulation Distribution Line. Chartists can use this indicator to affirm a security's underlying trend or anticipate reversals when the indicator diverges from the security price.</p>
                 <b>Parameters</b>
-                <p></p>
+                <p>For ADL indicator only series type can be adjusted.</p>
             ]]>
         </description>
         <defaults>
             <item name='seriesType' value='line' type='string'/>
+            <item name='plotIndex' value='17' type='number'/>
         </defaults>
     </indicator>
     <indicator type='cci'>
@@ -486,14 +627,15 @@
         <description>
             <![CDATA[
                 <b>Description</b>
-                <p></p>
+                <p>Developed by Donald Lambert and featured in Commodities magazine in 1980, the Commodity Channel Index (CCI) is a versatile indicator that can be used to identify a new trend or warn of extreme conditions. Lambert originally developed CCI to identify cyclical turns in commodities, but the indicator can successfully applied to indices, ETFs, stocks and other securities. In general, CCI measures the current price level relative to an average price level over a given period of time. CCI is relatively high when prices are far above their average. CCI is relatively low when prices are far below their average. In this manner, CCI can be used to identify overbought and oversold levels.</p>
                 <b>Parameters</b>
-                <p></p>
+                <p>There are only two parameters - the period and the series type.</p>
             ]]>
         </description>
         <defaults>
             <item name='period' value='20' type='number'/>
             <item name='seriesType' value='line' type='string'/>
+            <item name='plotIndex' value='18' type='number'/>
         </defaults>
     </indicator>
     <indicator type='cmf'>
@@ -502,14 +644,32 @@
         <description>
             <![CDATA[
                 <b>Description</b>
-                <p></p>
+                <p>Developed by Marc Chaikin, Chaikin Money Flow measures the amount of Money Flow Volume over a specific period. Money Flow Volume forms the basis for the Accumulation Distribution Line. Instead of a cumulative total of Money Flow Volume, Chaikin Money Flow simply sums Money Flow Volume for a specific look-back period, typically 20 or 21 days. The resulting indicator fluctuates above/below the zero line just like an oscillator. Chartists weigh the balance of buying or selling pressure with the absolute level of Chaikin Money Flow. Chartists can also look for crosses above or below the zero line to identify changes on money flow.</p>
                 <b>Parameters</b>
-                <p></p>
+                <p>There are only two parameters - the period and the series type.</p>
             ]]>
         </description>
         <defaults>
             <item name='period' value='20' type='number'/>
             <item name='seriesType' value='line' type='string'/>
+            <item name='plotIndex' value='19' type='number'/>
+        </defaults>
+    </indicator>
+    <indicator type='mfi'>
+        <title>Money Flow Index (MFI)</title>
+        <abbreviation>MFI</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>Money flow index (MFI) is an oscillator calculated over an N-day period, ranging from 0 to 100, showing money flow on up days as a percentage of the total of up and down days.</p>
+                <b>Parameters</b>
+                <p>There are only two parameters - the period and the series type.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='period' value='10' type='number'/>
+            <item name='seriesType' value='line' type='string'/>
+            <item name='plotIndex' value='20' type='number'/>
         </defaults>
     </indicator>
     <indicator type='dmi'>
@@ -518,9 +678,9 @@
         <description>
             <![CDATA[
                 <b>Description</b>
-                <p></p>
+                <p>Developed by Marc Chaikin, the DMI measures the momentum of the Accumulation Distribution Line using the MACD formula. This makes it an indicator of an indicator. The DMI is the difference between the 3-day EMA of the Accumulation Distribution Line and the 10-day EMA of the Accumulation Distribution Line. Like other momentum indicators, this indicator is designed to anticipate directional changes in the Accumulation Distribution Line by measuring the momentum behind the movements. A momentum change is the first step to a trend change. Anticipating trend changes in the Accumulation Distribution Line can help chartists anticipate trend changes in the underlying security. The Chaikin Oscillator generates signals with crosses above/below the zero line or with bullish/bearish divergences.</p>
                 <b>Parameters</b>
-                <p></p>
+                <p>DMI indicator needs six parameters: two periods: period and a period for ADX, a smoothing mode for whilders ad three series types (for +DI, -DI and ADX series of the indicator).</p>
             ]]>
         </description>
         <defaults>
@@ -530,6 +690,7 @@
             <item name='pdiSeries' value='line' type='string'/>
             <item name='ndiSeries' value='line' type='string'/>
             <item name='adxSeries' value='line' type='string'/>
+            <item name='plotIndex' value='21' type='number'/>
         </defaults>
     </indicator>
     <indicator type='cho'>
@@ -538,9 +699,9 @@
         <description>
             <![CDATA[
                 <b>Description</b>
-                <p></p>
+                <p>Developed by Marc Chaikin, the Chaikin Oscillator measures the momentum of the Accumulation Distribution Line using the MACD formula. This makes it an indicator of an indicator. The Chaikin Oscillator is the difference between the 3-day EMA of the Accumulation Distribution Line and the 10-day EMA of the Accumulation Distribution Line. Like other momentum indicators, this indicator is designed to anticipate directional changes in the Accumulation Distribution Line by measuring the momentum behind the movements. A momentum change is the first step to a trend change. Anticipating trend changes in the Accumulation Distribution Line can help chartists anticipate trend changes in the underlying security. The Chaikin Oscillator generates signals with crosses above/below the zero line or with bullish/bearish divergences.</p>
                 <b>Parameters</b>
-                <p></p>
+                <p>The Chaikin Oscillator indicator has 4 parameters: fast period, slow period, moving averagae type and the series type.</p>
             ]]>
         </description>
         <defaults>
@@ -548,6 +709,64 @@
             <item name='slowPeriod' value='10' type='number'/>
             <item name='smoothingType' value='["sma", "ema"]' type='array'/>
             <item name='seriesType' value='line' type='string'/>
+            <item name='plotIndex' value='22' type='number'/>
+        </defaults>
+    </indicator>
+    <indicator type='trix'>
+        <title>TRIX</title>
+        <abbreviation>TRIX</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>TRIX is a momentum oscillator that displays the percent rate of change of a triple exponentially smoothed moving average. It was developed in the early 1980's by Jack Hutson, an editor for Technical Analysis of Stocks and Commodities magazine. With its triple smoothing, TRIX is designed to filter insignificant price movements. Chartists can use TRIX to generate signals similar to MACD. A signal line can be applied to look for signal line crossovers. A directional bias can be determined with the absolute level. Bullish and bearish divergences can be used to anticipate reversals.</p>
+                <b>Parameters</b>
+                <p>There are six parameters a TRIX Channel indicator has. The next two parameters, "period" and "signalPeriod", set the TRIX and signal periods. The "maType" and "signalMaType" parameters set the soothing types of the indicator and the signal. Finally, the last two allow you to set the seires type of both the indicator and the signal.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='period' value='10' type='number'/>
+            <item name='signalPeriod' value='4' type='number'/>
+            <item name='maType' value='["ema", "sma"]' type='array'/>
+            <item name='signalMaType' value='["ema", "sma"]' type='array'/>
+            <item name='trixSeriesType' value='line' type='string'/>
+            <item name='signalSeriesType' value='line' type='string'/>
+            <item name='plotIndex' value='23' type='number'/>
+        </defaults>
+    </indicator>
+    <indicator type='williamsR'>
+        <title>Williams %R</title>
+        <abbreviation>Williams %R</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>Williams %R, or just %R, is a momentum indicator showing the current closing price in relation to the high and low of the past N days (for a given N). It was developed by trader and author Larry Williams and is used in the stock and commodities markets.</p>
+                <b>Parameters</b>
+                <p>There are only two parameters - the period and the series type.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='period' value='10' type='number'/>
+            <item name='seriesType' value='line' type='string'/>
+            <item name='plotIndex' value='24' type='number'/>
+        </defaults>
+    </indicator>
+    <indicator type='volumeMa'>
+        <title>VolumeMA</title>
+        <abbreviation>VolumeMA</abbreviation>
+        <description>
+            <![CDATA[
+                <b>Description</b>
+                <p>A Volume + Moving Average indicator is used in charts and technical analysis. It refers to the average volume of a security, commodity, or index constructed in a period as short as a few minutes or as long as several years and showing trends for the latest interval.</p>
+                <b>Parameters</b>
+                <p>There are four parameters Volume + MA indicator has. The next two parameters, "maPeriod" and "maType", set the period and type of the Moving Average. The last two, "volumeSeriesType" and "maSeriesType", allow you to set the Volume and MA series types.</p>
+            ]]>
+        </description>
+        <defaults>
+            <item name='maPeriod' value='20' type='number'/>
+            <item name='maType' value='["sma", "ema"]' type='array'/>
+            <item name='volumeSeriesType' value='stick' type='string'/>
+            <item name='maSeriesType' value='line' type='string'/>
+            <item name='plotIndex' value='25' type='number'/>
         </defaults>
     </indicator>
 </indicators>
