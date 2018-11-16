@@ -61,7 +61,6 @@ body, html {
     border: 5px solid #1c75ba;
     margin: 0 auto;
     position: relative;
-    -webkit-animation: rotateplane 3s infinite;
     animation: rotateplane 3s infinite; }
   .anychart-loader .chart-row {
     position: absolute;
@@ -83,69 +82,31 @@ body, html {
     .anychart-loader .chart-row .chart-col.green {
       background: #26a957;
       height: 50%;
-      -webkit-animation: blinkplane 1.5s infinite;
       animation: blinkplane 1.5s infinite; }
     .anychart-loader .chart-row .chart-col.orange {
       background: #ff8207;
       height: 70%;
-      -webkit-animation: blinkplane 1.5s infinite 0.15s;
       animation: blinkplane 1.5s infinite 0.25s; }
     .anychart-loader .chart-row .chart-col.red {
       background: #f0402e;
       height: 90%;
-      -webkit-animation: blinkplane 1.5s infinite 0.3s;
       animation: blinkplane 1.5s infinite 0.5s; }
-
-@-webkit-keyframes rotateplane {
-  0% {
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-    opacity: 1; }
-  25% {
-    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-    opacity: 0.3; }
-  50% {
-    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-    opacity: 1; }
-  75% {
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(-180.1deg);
-    transform: perspective(120px) rotateX(0deg) rotateY(-180.1deg);
-    opacity: 0.3; }
-  100% {
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-    opacity: 1; } }
 
 @keyframes rotateplane {
   0% {
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
     transform: perspective(120px) rotateX(0deg) rotateY(0deg);
     opacity: 1; }
   25% {
-    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
     transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
     opacity: 0.3; }
   50% {
-    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     opacity: 1; }
   75% {
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(-180.1deg);
     transform: perspective(120px) rotateX(0deg) rotateY(-180.1deg);
     opacity: 0.3; }
   100% {
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
     transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-    opacity: 1; } }
-
-@-webkit-keyframes blinkplane {
-  0% {
-    opacity: 1; }
-  50% {
-    opacity: 0.01; }
-  100% {
     opacity: 1; } }
 
 @keyframes blinkplane {

@@ -104,10 +104,7 @@ function updateTextForIndicatorTypeSelect($select) {
             'spline-area',
             'step-area',
             'step-line',
-            'stick',
-            'range-area',
-            'candlestick',
-            'ohlc'
+            'stick'
         ]
     };
 
@@ -347,7 +344,7 @@ function updateTextForIndicatorTypeSelect($select) {
             // reset saved settings
             appSettingsCache['indicators'] = {};
             appSettingsCache['scale'] = 'linear';
-            appSettingsCache['chartType'] = 'candlestick';
+            appSettingsCache['chartType'] = 'line';
 
             // select msft data
             $chartDataSelect.val(1).selectpicker('refresh');
